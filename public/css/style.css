@@ -1,9 +1,30 @@
+:root {
+  --darkest: #555555;
+  --darker: #CDC9C3;
+  --lighter: #D9E4DD;
+  --lightest: #FBF7F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--lightest);
+}
+
 /* https://www.w3schools.com/howto/howto_css_searchbar.asp */
 
 /* Add a black background color to the top navigation bar */
+/* https://www.w3schools.com/howto/howto_css_fixed_menu.asp */
 .topnav {
   overflow: hidden;
-  background-color: #e9e9e9;
+  background-color: var(--lighter);
+  /* position: fixed; Set the navbar to fixed position
+  top: 0; Position the navbar at the top of the page
+  width: 100%; Full width */
 }
 
 /* Style the links inside the navigation bar */
@@ -14,19 +35,28 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: larger;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.topnav img {
+  float: left;
+  padding: 5px 5px 0px 5px;
+  margin: auto;
+  display: block;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: var(--darker);
   color: black;
 }
 
 /* Style the "active" element to highlight the current page */
 .topnav a.active {
-  background-color: #2196F3;
-  color: white;
+  background-color: var(--darkest);
+  color: var(--lightest);
 }
 
 /* Style the search box inside the navigation bar */
@@ -34,9 +64,72 @@
   float: right;
   padding: 6px;
   border: none;
-  margin-top: 8px;
-  margin-right: 16px;
+  margin: 10px;
   font-size: 17px;
+}
+
+input[type=text] {
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* https://www.w3schools.com/howto/howto_css_animated_search.asp */
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 25%;
+}
+
+.columns-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+}
+
+.col-xs-4 {
+  flex: 0 0 calc(33.33333% - 10px);
+}
+
+.box {
+  background-color: var(--darker);
+  margin: 20px 5px;
+  text-align: center;
+  height: 100vh;
+  font-size: 24px;
+}
+
+h3 {
+  color: var(--darkest);
+  padding: 20px;
+}
+
+#to-do {
+  margin-left: 20px;
+}
+
+#completed {
+  margin-right: 20px;
+}
+
+.footer {
+  /* position: fixed;
+  left: 0;
+  bottom: 0; */
+  width: 100%;
+  background-color: var(--lighter);
+  color: var(--darkest);
+  text-align: center;
+}
+
+.footer a {
+  color: var(--darkest);
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
