@@ -29,7 +29,7 @@ passport.use(new LocalStrategy((username, password, cb) => {
 //   failureRedirect: '/login',
 // }));
 
-//html for passport
+//example form HTML
 /* <h1>Sign in</h1>
 <form action="/login/password" method="post">
     <section>
