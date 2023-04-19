@@ -4,7 +4,7 @@ const path = require("path");
 
 router.get("/", async (req, res) => {
     res.render("index", {
-        
+
     })
 });
 
