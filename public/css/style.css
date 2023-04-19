@@ -193,19 +193,19 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid var(--darkest);
   box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
 button {
-  background-color: #04AA6D;
-  color: white;
+  background-color: var(--darkest);
+  color: var(--lightest);
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 20%;
 }
 
 /* Add a hover effect for buttons */
@@ -217,26 +217,14 @@ button:hover {
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
+  background-color: var(--lighter);
+  color: var(--darkest);
 }
 
 /* Add padding to containers */
 .container {
   padding: 16px;
 }
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
 
 /* https://www.w3schools.com/howto/howto_css_login_form.asp */
 /* Bordered form */
@@ -250,7 +238,7 @@ span.psw {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: var(--lightest);
+  background-color: var(--lighter);
   padding-top: 60px;
 }
 
@@ -258,7 +246,7 @@ span.psw {
 .modal-content {
   background-color: var(--lightest);
   margin: 5px auto; /* 15% from the top and centered */
-  border: 1px solid #888;
+  border: 1px solid var(--darkest);
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
@@ -268,7 +256,7 @@ span.psw {
   position: absolute;
   right: 25px;
   top: 0; 
-  color: #000;
+  color: var(--darkest);
   font-size: 35px;
   font-weight: bold;
 }
@@ -296,23 +284,23 @@ span.psw {
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
+  background-color: var(--lightest);
 }
 
 input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
+  background-color: var(--lighter);
   outline: none;
 }
 
 hr {
-  border: 1px solid #f1f1f1;
+  border: 1px solid var(--darkest);
   margin-bottom: 25px;
 }
 
 /* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
+button-login {
+  background-color: var(--darkest);
+  color: var(--lightest);
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -326,13 +314,16 @@ button:hover {
 }
 
 /* Extra styles for the cancel button */
-.cancelbtn {
+.cancelbtn-login {
   padding: 14px 20px;
-  background-color: #f44336;
+  width: auto;
+  padding: 10px 18px;
+  background-color: var(--lighter);
+  color: var(--darkest);
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn-login, .signupbtn {
   float: left;
   width: 50%;
 }
