@@ -60,25 +60,20 @@ body {
 }
 
 /* Style the search box inside the navigation bar */
-.topnav input[type=text] {
+/* .topnav input[type=text] {
   float: right;
   padding: 6px;
   border: none;
   margin: 10px;
   font-size: 17px;
-}
+} */
 
-.search {
-  width: 130px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
 
 /* https://www.w3schools.com/howto/howto_css_animated_search.asp */
 /* When the input field gets focus, change its width to 100% */
-.search {
+/* .search {
   width: 25%;
-}
+} */
 
 .columns-wrapper{
   display: flex;
@@ -106,7 +101,7 @@ body {
   border-radius: 10px;
 }
 
-h3 {
+.project {
   color: var(--darkest);
   padding: 20px;
 }
@@ -127,7 +122,7 @@ h3 {
   margin: auto;
 }
 
-h5 {
+.card h5 {
   color: var(--darkest);
   text-align: start;
   padding: 7px;
@@ -144,7 +139,7 @@ p {
   background-color: var(--lightest);
   width: 91%;
   margin: auto;
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
   text-align: justify;
 }
@@ -188,7 +183,16 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+.text {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--darkest);
+  box-sizing: border-box;
+}
+
+.pass {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -278,7 +282,16 @@ button:hover {
 * {box-sizing: border-box}
 
 /* Full-width input fields */
-  input[type=text], input[type=password] {
+  /* input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background-color: var(--lightest);
+} */
+
+.text {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -287,7 +300,21 @@ button:hover {
   background-color: var(--lightest);
 }
 
-input[type=text]:focus, input[type=password]:focus {
+.pass {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background-color: var(--lightest);
+}
+
+.text:focus {
+  background-color: var(--lighter);
+  outline: none;
+}
+
+.pass:focus {
   background-color: var(--lighter);
   outline: none;
 }
@@ -338,6 +365,116 @@ button:hover {
   content: "";
   clear: both;
   display: table;
+}
+
+.search-class {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin: 10px;
+  font-size: 17px;
+}
+
+.search-class {
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.search-class:focus {
+  width: 30%;
+}
+
+.dash-container {
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto, 1fr;
+  grid-template-areas: 
+  "user user"
+  "proj-list tasks-asgn";
+}
+
+#user {
+  grid-area: user;
+  background-color: var(--darkest);
+  grid-column: 1 / 3;
+  text-align: center;
+  padding: 10px;
+  color: var(--lightest); 
+}
+
+#proj-list {
+  grid-area: proj-list;
+  background-color: var(--darker);
+  /* height: 100vh; */
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+#tasks-asgn {
+  grid-area: tasks-asgn;
+  background-color: var(--darker);
+  /* height: 100vh; */
+  border-radius: 10px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dash-container h3 {
+  padding: 10px;
+  color: var(--darkest);
+}
+
+.proj-card {
+  border: 4px solid var(--darkest);
+  background-color: var(--lighter);
+  color: var(--darkest);
+  border-radius: 10px;
+  margin: auto;
+  padding: 10px;
+  width: 90%;
+}
+
+.task-type-container {
+  background-color: var(--lightest);
+  border-radius: 10px;
+  border: 4px solid var(--darkest);
+  width: 90%;
+  color: var(--darkest);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 10px;
+}
+
+.task-type-container h4 {
+  padding: 10px;
+}
+
+.task-card-container {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+}
+
+.task-card {
+  padding: 10px;
+  border: 4px solid var(--darkest);
+  border-radius: 10px;
+  width: 50%;
+  background-color: var(--lighter);
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.task-card h5 {
+  padding-bottom: 5px;
 }
 
 @-webkit-keyframes animatezoom {
