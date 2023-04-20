@@ -219,10 +219,13 @@ button:hover {
 
 /* Extra style for the cancel button (red) */
 .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: var(--lighter);
+  background-color: var(--darker);
   color: var(--darkest);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
 }
 
 /* Add padding to containers */
@@ -488,6 +491,9 @@ button:hover {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
 }
+#plus:hover {
+  cursor: pointer;
+}
 
 /* Modal content */
 #task-modal-content {
@@ -511,6 +517,72 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+#cancel-task-btn{
+background-color: var(--darker);
+color: var(--darkest);
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 20%;
+}
+
+#submit-task-button {
+  background-color: var(--darkest);
+  color: var(--lightest);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+/* https://www.w3schools.com/howto/howto_js_dropdown.asp */
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
 
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)} 

@@ -1,10 +1,10 @@
 <div class="topnav">
   <div class="nav-img">
-      <img id="plus" src="images/plus.png" alt="plus sign" height="30px"onclick="document.getElementById('plus')" >
+      <img id="plus" src="images/plus.png" alt="plus sign" height="30px">
   </div>
 
   <div class="nav-content">
-    <a class="active" href="">Tasks</a>
+    <a class="active" href="">T@sks</a>
     <a href="dashboard">Dashboard</a>
     <a href="project">Projects</a>
 
@@ -61,16 +61,24 @@
   <div id="task-modal-content" class="modal-content">
     <span class="close">&times;</span>
     <div class="card">
-      <h5>Task Title</h5>
-      <p class="task-test">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-      <div class="user-cat">
-        <span class="badge">Category</span>
-        <span class="badge">User Assigned</span>
-      </div>
-      <button id="cancelBtn">Cancel</button>
-      <button id="submitBtn">Submit</button>
+     <form class="task-form">
+      <label name="title-label" class="title-label">Title</label>
+      <input type="text">
+      <label name="task-label" class="task-label">Task Description</label>
+      <textarea></textarea>
+       <label name="cat-label" class="title-label">Category</label>
+       <input type="text">
+     </form>
+ <div class="dropdown">
+  <button onclick="dropDownUser()" class="dropbtn">Assign a Teammate</button>
+  <div id="userDropdown" class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+      <button id="cancel-task-btn">Cancel</button>
+      <button id="submit-task-btn">Submit</button>
     </div>
   </div>
 </div>
