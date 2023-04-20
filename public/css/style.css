@@ -177,7 +177,7 @@ p {
 }
 
 /* Bordered form */
-form {
+.modal-content {
   border: 5px solid var(--darkest);
   border-radius: 10px;
 }
@@ -254,7 +254,7 @@ button:hover {
   background-color: var(--lightest);
   margin: 5px auto; /* 15% from the top and centered */
   border: 1px solid var(--darkest);
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -584,6 +584,31 @@ width: 20%;
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
+#task-modal .card {
+  padding: 10px;
+  color: var(--darkest);
+  font-weight: bold;
+}
+
+.task-form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-input{
+  margin-bottom: 10px;
+}
+
+/* .cat-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#cat-input {
+  margin-top: 5px;
+} */
+
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)} 
   to {-webkit-transform: scale(1)}
@@ -608,7 +633,6 @@ width: 20%;
     border: 1px solid #ccc;
   }
 }
-
 
 
 /* Change styles for span and cancel button on extra small screens */
