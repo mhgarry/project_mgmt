@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
-const db = require("../db/connection");
+const db = require("../config/connection");
 
 class User extends Model {
     async validatePass(provided_password) {
@@ -12,7 +12,7 @@ class User extends Model {
 User.init({
     email: {
         type: DataTypes.STRING,
-        uique: true,
+        unique: true,
         validate: {
             isEmail: true
         },
@@ -26,11 +26,11 @@ User.init({
         allowNull: false
     }
 }, {
-    squelize: db,
+    sequelize: db,
     modelName: "user",
     hooks: {
         async beforeCreate(user) {
-            const encrypted_pass = await bycrpt.hash(user.password, 10);
+            const encrypted_pass = await bcrypt.hash(user.password, 10);
             user.password = encrypted_pass;
         }
     }

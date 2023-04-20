@@ -7,15 +7,15 @@
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">x</span>
-  <form id="register-form" class="modal-content" action="/action_page.php">
+  <form id="register-form" class="modal-content" action="/" method="POST">
     <div id="register-container" class="container">
       <h1>Register</h1>
       <hr>
       <label for="email"><b>Email</b></label>
-      <input id="register-email" type="text" class ="text" placeholder="Enter Email" name="email" required>
+      <input id="register-email" type="email" class ="text" placeholder="Enter Email" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input id="register-password" type="password" class="pass" placeholder="Enter Password" name="psw" required>
+      <input id="register-password" type="password" class="pass" placeholder="Enter Password" name="password" required>
 
       <div id="register-btn-container" class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" id="register-cancel-btn" class="cancelbtn">Cancel</button>
