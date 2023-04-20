@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
 
     res.session.user_id = user.id;
 
-    res.redirect("/");
+    res.redirect("/dashboard");
 });
 
 // register post
@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
     try {
         const user = await User.create(user_data);
         req.session.user_id= user.id;
-        res.redirect("/");
+        res.redirect("/dashboard");
 
     } catch {
         res.redirect("/");
