@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("squelize");
-const bcrypt = require(bcrypt);
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 const db = require("../db/connection");
 
 class User extends Model {
@@ -26,7 +26,7 @@ User.init({
         allowNull: false
     }
 }, {
-    sequelize: db,
+    squelize: db,
     modelName: "user",
     hooks: {
         async beforeCreate(user) {
@@ -36,4 +36,4 @@ User.init({
     }
 });
 
-module.exports = User
+module.exports = User;
