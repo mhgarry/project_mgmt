@@ -11,6 +11,7 @@ const db = require('./config/connection');
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static('public'));
 app.engine('hbs', engine({
   extname: '.hbs',
@@ -19,7 +20,9 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
-app.use(routes);
+app.use("/", [routes]);
+
+
 
 app.use(session({
   secret: process.env.SESSION_SECRET,

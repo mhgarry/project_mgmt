@@ -1,18 +1,24 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
+
+function loggedIn(req, res, next) {
+  if (req.session.id) return res.redirect("/dashboard")
+  next();
+}
+
+router.get('/', loggedIn, (req, res) => {
   res.render('index', {
 
   });
 });
 
-router.get('/project', (req, res) => {
+router.get('/project', loggedIn, (req, res) => {
   res.render('project', {
 
   });
 });
 
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard', loggedIn, (req, res) => {
   res.render('dashboard', {
 
   });
