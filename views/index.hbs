@@ -2,31 +2,31 @@
 {{!-- https://www.w3schools.com/howto/howto_css_login_form.asp --}}
 
 <!-- Button to open the modal -->
-<button onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
+<button id="register-btn" onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
 
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">x</span>
-  <form class="modal-content" action="/action_page.php">
-    <div class="container">
+  <form id="register-form" class="modal-content" action="/action_page.php">
+    <div id="register-container" class="container">
       <h1>Register</h1>
       <hr>
       <label for="email"><b>Email</b></label>
-      <input type="text" class ="text" placeholder="Enter Email" name="email" required>
+      <input id="register-email" type="text" class ="text" placeholder="Enter Email" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" class="pass" placeholder="Enter Password" name="psw" required>
+      <input id="register-password" type="password" class="pass" placeholder="Enter Password" name="psw" required>
 
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signup">Sign Up</button>
+      <div id="register-btn-container" class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" id="register-cancel-btn" class="cancelbtn">Cancel</button>
+        <button id="register-submit-btn" type="submit" class="signup">Sign Up</button>
       </div>
     </div>
   </form>
 </div>
 
 <!-- Button to open the modal login form -->
-<button onclick="document.getElementById('id02').style.display='block'">Login</button>
+<button id="sign-in-btn" onclick="document.getElementById('id02').style.display='block'">Login</button>
 
 <!-- The Modal -->
 <div id="id02" class="modal">
@@ -34,21 +34,26 @@
 class="close" title="Close Modal">x</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
+  <form id="sign-in-form" class="modal-content animate" action="/action_page.php">
    
-    <div class="container">
+    <div id="sign-in-container" class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" class="text" placeholder="Enter Username" name="uname" required>
+      <input id="sign-in-username" type="text" class="text" placeholder="Enter Username" name="uname" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" class="pass" placeholder="Enter Password" name="psw" required>
+      <input id="sign-in-password" type="password" class="pass" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
+      {{!-- <button id="login-btn" type="submit">Login</button> --}}
  
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn-login">Cancel</button>
+    <div id="sign-in-btn-container" class="clearfix">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" id="sign-in-cancel-btn" class="cancelbtn">Cancel</button>
+        <button id="sign-in-submit-btn" type="submit" class="signup">Sign Up</button>
+      </div>
+
+    {{!-- <div id="cancel-sign-in-btn-container" class="container">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" id="cancel-sign-in-btn" class="cancelbtn-login">Cancel</button> --}}
       
     </div>
   </form>
