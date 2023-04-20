@@ -210,6 +210,7 @@ button {
   border: none;
   cursor: pointer;
   width: 20%;
+  border-radius: 10px;
 }
 
 /* Add a hover effect for buttons */
@@ -337,6 +338,7 @@ button-login {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  border-radius: 10px;
 }
 
 button:hover {
@@ -350,6 +352,7 @@ button:hover {
   padding: 10px 18px;
   background-color: var(--lighter);
   color: var(--darkest);
+  border-radius: 10px;
 }
 
 /* Float cancel and signup buttons and add an equal width */
@@ -536,23 +539,25 @@ width: 20%;
   border: none;
   cursor: pointer;
   width: 20%;
+  border-radius: 10px;
 }
 
 /* https://www.w3schools.com/howto/howto_js_dropdown.asp */
 /* Dropdown Button */
 .dropbtn {
-  background-color: #3498DB;
-  color: white;
+  background-color: var(--darkest);
+  color: var(--lightest);
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  width: 200px;
 }
 
 /* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
+/* .dropbtn:hover, .dropbtn:focus {
   background-color: #2980B9;
-}
+} */
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -564,22 +569,22 @@ width: 20%;
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: var(--lightest);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  border-radius: 10px;
 }
-
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
+  color: var(--darkest);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: var(--darkest); color: var(--lightest);}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
@@ -597,6 +602,25 @@ width: 20%;
 
 .title-input{
   margin-bottom: 10px;
+  width: 75%;
+  height: 30px;
+  border: var(--darkest) 2px solid;
+}
+
+.task-descrip {
+  border: var(--darkest) 2px solid;
+}
+
+#cat-input{
+  margin-bottom: 10px;
+  width: 40%;
+  height: 30px;
+  border: var(--darkest) 2px solid;
+}
+
+.cat-user-modal-div {
+  display: flex;
+  flex-direction: column;
 }
 
 /* .cat-label {
