@@ -4,12 +4,16 @@
   </div>
 
   <div class="nav-content">
-    <a class="active" href="">T@sks</a>
+    <a href="">T@sks</a>
     <a href="dashboard">Dashboard</a>
-    <a href="project">Projects</a>
+    <a class="active" href="project">Projects</a>
 
-    <div class="search">
-      <input type="text" class="search-class" name="search" placeholder="Search...">
+    <div class="right">
+      <div class="search">
+        <input type="text" class="search-class" name="search" placeholder="Search..." />
+      </div>
+
+      <a href="/">Log Out</a>
     </div>
 
   </div>
@@ -27,7 +31,8 @@
           <input class="title-input" type="text">
           <label name="task-label" class="task-label">Task Description</label>
           <textarea class="task-descrip" rows="3" cols="62"></textarea>
-      {{!-- </div> --}}
+          {{!--
+      </div> --}}
 
       <div class="cat-user-modal-div">
         <label name="cat-label" class="cat-label">Category</label>
@@ -42,7 +47,7 @@
           </div>
         </div>
 
-       </div>
+      </div>
       </form>
 
       <button id="cancel-task-btn">Cancel</button>
@@ -54,7 +59,7 @@
 
 {{!-- https://www.w3schools.com/howto/howto_css_badge.asp --}}
 <section class="columns-wrapper">
-
+<h1 id="project-name">Project Name</h1>
   <div class="row">
     <div class="col-xs-4">
       <div class="box" id="to-do">
@@ -111,6 +116,7 @@
 
 
 <div class="footer">
+  <p>&copy Mathew Garry, Matthew Moraga, Cassandra Scelsi</p>
   <a href="https://www.flaticon.com/free-icons/project" title="project icons">Project icons created by Freepik -
     Flaticon</a>
 </div>
