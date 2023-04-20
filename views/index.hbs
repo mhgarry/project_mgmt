@@ -6,7 +6,7 @@
 
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">x</span>
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
   <form id="register-form" class="modal-content" action="/action_page.php">
     <div id="register-container" class="container">
       <h1>Register</h1>
@@ -42,19 +42,12 @@ class="close" title="Close Modal">x</span>
 
       <label for="psw"><b>Password</b></label>
       <input id="sign-in-password" type="password" class="pass" placeholder="Enter Password" name="psw" required>
-
-      {{!-- <button id="login-btn" type="submit">Login</button> --}}
-
     </div>
 
     <div id="sign-in-btn-container" class="clearfix">
         <button type="button" onclick="document.getElementById('id02').style.display='none'" id="sign-in-cancel-btn" class="cancelbtn">Cancel</button>
         <button id="sign-in-submit-btn" type="submit" class="signup">Sign Up</button>
       </div>
-
-    {{!-- <div id="cancel-sign-in-btn-container" class="container">
-      <button type="button" onclick="document.getElementById('id02').style.display='none'" id="cancel-sign-in-btn" class="cancelbtn-login">Cancel</button> --}}
-
     </div>
   </form>
 </div>
