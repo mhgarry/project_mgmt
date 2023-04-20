@@ -18,4 +18,17 @@ router.get("/dashboard", (req, res) => {
     })
 });
 
+router.get("/main", (req, res) =>  {
+    res.render("./layouts/main")
+});
+
+router.get("/login", (req, res) =>  {
+    res.render("login")
+});
+
+router.get("/register", (req, res) => {
+    res.render("register")
+});
+
+
 module.exports = router;
