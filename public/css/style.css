@@ -477,6 +477,41 @@ button:hover {
   padding-bottom: 5px;
 }
 
+#task-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+#task-modal-content {
+  background-color: var(--lightest);
+  margin: auto;
+  padding: 20px 0px;
+  /* border: 1px solid #888; */
+}
+
+/* Close button */
+.close {
+  color: var(--lightest);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--darkest);
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)} 
   to {-webkit-transform: scale(1)}
