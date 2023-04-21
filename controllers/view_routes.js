@@ -18,10 +18,18 @@ router.get('/project', isLoggedIn, (req, res) => {
   });
 });
 
-router.get('/dashboard', isLoggedIn, (req, res) => {
-  res.render('dashboard', {
+// router.get('/dashboard', isLoggedIn, (req, res) => {
+//   res.render('dashboard', {
 
-  });
+//   });
+// });
+
+router.get("/login", (req, res) => {
+  res.render("login")
+});
+
+router.get("/register", (req, res) => {
+  res.render("register")
 });
 
 // router.get('../views/login.hbs', (req, res) => {

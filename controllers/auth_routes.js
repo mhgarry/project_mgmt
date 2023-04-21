@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../models/User");
 
 // login post
-router.post("/", async (req, res) => {
+router.post("/login", async (req, res) => {
     const user_data = req.body;
     
     const user = await User.findOne({
@@ -11,11 +11,11 @@ router.post("/", async (req, res) => {
         }
     });
 
-    if (!user) return res.redirect("/");
+    if (!user) return res.redirect("/register");
 
     const valid_pass = await user.validatePass(user_data.password);
 
-    if (!valid_pass) return res.redirect("/");
+    if (!valid_pass) return res.redirect("/login");
 
     req.session.user_id = user.id;
 
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
 });
 
 // register post
-router.post("/", async (req, res) => {
+router.post("/register", async (req, res) => {
     const user_data = req.body;
     
     try {
@@ -32,12 +32,12 @@ router.post("/", async (req, res) => {
         res.redirect("/dashboard");
 
     } catch (err) {
-        res.redirect("/");
+        res.redirect("/login");
     }
 });
 
 // user logout
-router.get("/", (req, res) => {
+router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/");
 });
