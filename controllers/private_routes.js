@@ -16,7 +16,8 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
     });
 });
 
-router.post("/cards", async (req, res) => {
+function newCard() {
+   router.post("/cards", async (req, res) => {
     try {
       const { task_title, task_desc, task_cat, teammate_id } = req.body;
       const newCard = await Card.create({
@@ -30,6 +31,8 @@ router.post("/cards", async (req, res) => {
       console.error(err);
       res.status(500).json({ message: "Server error" });
     }
-  });
+  }); 
+}
+
 
 module.exports = router;
