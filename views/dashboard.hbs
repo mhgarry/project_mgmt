@@ -1,0 +1,166 @@
+<div class="topnav">
+  <div class="nav-img">
+    <img id="plus" src="images/plus.png" alt="plus sign" height="30px">
+  </div>
+
+  <div class="nav-content">
+    <a href="">T@sks</a>
+    <a class="active" href="dashboard">Dashboard</a>
+    <a href="project">Projects</a>
+
+    <div class="right">
+      <div class="search">
+        <input type="text" class="search-class" name="search" placeholder="Search..." />
+      </div>
+
+      <a href="/">Log Out</a>
+    </div>
+
+
+  </div>
+
+</div>
+
+<!-- add the modal HTML inside the body -->
+<div id="task-modal" class="modal">
+  <div id="task-modal-content" class="modal-content">
+    <span class="close">&times;</span>
+    <div class="card">
+      {{!-- <div class="title-task-modal-div"> --}}
+        <form class="task-form" action="/cards" method="POST">
+          <label name="title-label" class="title-label">Title</label>
+          <input class="title-input" type="text">
+          <label name="task-label" class="task-label">Task Description</label>
+          <textarea class="task-descrip" rows="3" cols="62"></textarea>
+          {{!--
+      </div> --}}
+
+      <div class="cat-user-modal-div">
+        <label name="cat-label" class="cat-label">Category</label>
+        <input id="cat-input" type="text">
+
+        <div class="dropdown">
+          <button onclick="dropDownUser()" class="dropbtn">Assign a Teammate</button>
+          <div id="userDropdown" class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+
+      </div>
+      </form>
+
+      <button id="cancel-task-btn">Cancel</button>
+      <button id="submit-task-btn">Submit</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="dash-container">
+  <div id="user">
+    <h2>Welcome, User!</h2>
+  </div>
+
+  <div id="proj-list">
+    <h3>My Projects</h3>
+
+    <div class="proj-card">
+      <h5>Project Title</h5>
+    </div>
+
+  </div>
+
+  <div id="tasks-asgn">
+    <h3>Tasks Assigned to Me</h3>
+
+    <div id="my-to-do" class="task-type-container">
+      <h4>To Do</h4>
+      <div class="task-card-container">
+        <div class="task-card">
+          <h5>Task Title</h5>
+          <p class="task-test">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
+          <div class="user-cat">
+            <span class="badge">Category</span>
+            <span class="badge">User Assigned</span>
+          </div>
+        </div>
+        <div class="task-card">
+          <h5>Task Title</h5>
+          <p class="task-test">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
+          <div class="user-cat">
+            <span class="badge">Category</span>
+            <span class="badge">User Assigned</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="my-in-progress" class="task-type-container">
+      <h4>In Progress</h4>
+      <div class="task-card-container">
+        <div class="task-card">
+          <h5>Task Title</h5>
+          <p class="task-test">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
+          <div class="user-cat">
+            <span class="badge">Category</span>
+            <span class="badge">User Assigned</span>
+          </div>
+        </div>
+        <div class="task-card">
+          <h5>Task Title</h5>
+          <p class="task-test">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
+          <div class="user-cat">
+            <span class="badge">Category</span>
+            <span class="badge">User Assigned</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="my-completed" class="task-type-container">
+      <h4>Completed</h4>
+      <div class="task-card-container">
+        <div class="task-card">
+          <h5>Task Title</h5>
+          <p class="task-test">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
+          <div class="user-cat">
+            <span class="badge">Category</span>
+            <span class="badge">User Assigned</span>
+          </div>
+        </div>
+        <div class="task-card">
+          <h5>Task Title</h5>
+          <p class="task-test">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</p>
+          <div class="user-cat">
+            <span class="badge">Category</span>
+            <span class="badge">User Assigned</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <p>&copy Mathew Garry, Matthew Moraga, Cassandra Scelsi</p>
+  <a href="https://www.flaticon.com/free-icons/project" title="project icons">Project icons created by Freepik -
+    Flaticon</a>
+</div>
