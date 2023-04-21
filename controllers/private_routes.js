@@ -16,23 +16,23 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
     });
 });
 
-function newCard() {
-   router.post("/cards", async (req, res) => {
-    try {
-      const { task_title, task_desc, task_cat, teammate_id } = req.body;
-      const newCard = await Card.create({
-        task_title,
-        task_desc,
-        task_cat,
-        teammate_id,
-      });
-      res.status(201).json(newCard);
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: "Server error" });
-    }
-  }); 
-}
+
+router.post("/cards", async (req, res) => {
+  try {
+    const { task_title, task_desc, task_cat, teammate_id } = req.body;
+    const newCard = await Card.create({
+      task_title,
+      task_desc,
+      task_cat,
+      teammate_id,
+    });
+    res.status(201).json(newCard);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+}); 
+
 
 
 module.exports = router;
