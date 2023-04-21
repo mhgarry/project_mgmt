@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const session = require('express-session');
 const { engine } = require('express-handlebars');
@@ -7,12 +8,8 @@ const routes = require('./controllers');
 const db = require('./config/connection');
 
 // add api/hbc routes
-
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static('public'));
 app.engine('hbs', engine({
   extname: '.hbs',
 }));
@@ -20,8 +17,9 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
-app.use("/", [routes]);
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 
 app.use(session({
@@ -29,6 +27,9 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
+
+app.use("/", routes);
+
 
 // app.engine('hbs', engine({
 //   extname: '.hbs' // change the file extension from .handlebars to .hbs

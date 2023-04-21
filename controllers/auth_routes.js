@@ -3,7 +3,7 @@ const User = require("../models/User");
 
 // login post
 router.post("/", async (req, res) => {
-    const user_data = req.body
+    const user_data = req.body;
     
     const user = await User.findOne({
         where: {
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 
     if (!valid_pass) return res.redirect("/");
 
-    res.session.user_id = user.id;
+    req.session.user_id = user.id;
 
     res.redirect("/dashboard");
 });
@@ -28,10 +28,10 @@ router.post("/", async (req, res) => {
     
     try {
         const user = await User.create(user_data);
-        req.session.user_id= user.id;
+        req.session.user_id = user.id;
         res.redirect("/dashboard");
 
-    } catch {
+    } catch (err) {
         res.redirect("/");
     }
 });
