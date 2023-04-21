@@ -23,7 +23,7 @@ window.onclick = function (event) {
 const modal = document.getElementById("task-modal");
 
 // Get the <span> element that closes the modal
-// const closeBtn = modal.querySelector(".close");
+const closeBtn = modal.querySelector(".close");
 
 // Get the cancel and submit buttons
 const cancelBtn = modal.querySelector("#cancel-task-btn");
@@ -62,21 +62,21 @@ window.onclick = function (event) {
 const submitTaskBtn = document.querySelector("#submit-task-btn");
 const card = document.querySelector(".task-form");
 
-submitTaskBtn.addEventListener("click", (event) => {
-  event.preventDefault(); // prevent default form submission behavior
+// submitTaskBtn.addEventListener("click", (event) => {
+//   event.preventDefault(); // prevent default form submission behavior
 
-  const cardData = new Card(card);
+//   const cardData = new Card(card);
 
-  fetch("/cards", {
-    method: "POST",
-    body: cardData,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response error");
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-});
+//   fetch("/cards", {
+//     method: "POST",
+//     body: cardData,
+//   })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Network response error");
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Error:", error);
+//     });
+// });
