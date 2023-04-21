@@ -4,14 +4,14 @@ const Card = require("../models/Card")
 
 function isAuthenticated(req, res, next) {
     if (!req.session.user_id) {
-        return res.redirect("/");
+        return res.redirect("/login");
     }
     next();
 }
 
 router.get("/dashboard", isAuthenticated, async (req, res) => {
     const user = await User.findByPk(req.session.user_id);
-    res.render("/dashboard", {
+    res.render("dashboard", {
         email: user.email
     });
 });
