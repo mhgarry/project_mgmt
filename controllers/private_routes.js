@@ -16,6 +16,13 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
     });
 });
 
+router.get("/project", isAuthenticated, async (req, res) => {
+  const user = await User.findByPk(req.session.user_id);
+  res.render("project", {
+      email: user.email
+  });
+});
+
 function newCard() {
    router.post("/cards", async (req, res) => {
     try {
