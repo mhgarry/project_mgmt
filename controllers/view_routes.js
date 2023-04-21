@@ -6,7 +6,7 @@ function isLoggedIn(req, res, next) {
   next();
 }
 
-router.get('/', isLoggedIn, (req, res) => {
+router.get('/', (req, res) => {
   res.render('index', {
 
   });
