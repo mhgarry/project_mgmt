@@ -23,7 +23,7 @@ window.onclick = function (event) {
 const modal = document.getElementById("task-modal");
 
 // Get the <span> element that closes the modal
-const closeBtn = modal.querySelector(".close");
+// const closeBtn = modal.querySelector(".close");
 
 // Get the cancel and submit buttons
 const cancelBtn = modal.querySelector("#cancel-task-btn");
