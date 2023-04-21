@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/project', isLoggedIn, (req, res) => {
+router.get('/project', (req, res) => {
   res.render('project', {
 
   });
