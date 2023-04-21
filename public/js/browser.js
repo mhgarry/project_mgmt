@@ -59,12 +59,24 @@ window.onclick = function (event) {
   }
 };
 
-const assignBtn = document.querySelector(".dropbtn");
+const submitTaskBtn = document.querySelector("#submit-task-btn");
+const card = document.querySelector(".task-form");
 
-// add an event listener to the button
-assignBtn.addEventListener("click", function (event) {
-  // prevent the default behavior of the button
-  event.preventDefault();
+submitTaskBtn.addEventListener("click", (event) => {
+  event.preventDefault(); // prevent default form submission behavior
 
-  // your code to show/hide the dropdown content goes here
+  const cardData = new Card(card);
+
+  fetch("/cards", {
+    method: "POST",
+    body: cardData,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response error");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 });
