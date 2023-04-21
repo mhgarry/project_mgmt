@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require('express');
 const session = require('express-session');
 const { engine } = require('express-handlebars');
+const passport = require('passport');
+const passportConfig = require('./config/passport');
 
 const PORT = process.env.PORT || 3001;
 const routes = require('./controllers');
@@ -27,8 +29,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-
-app.use("/", routes);
+passportConfig(passport);
+app.use(passport.session());
 
 
 // app.engine('hbs', engine({
