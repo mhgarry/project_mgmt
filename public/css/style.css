@@ -185,6 +185,13 @@ p {
   background-color: var(--lighter);
   color: var(--darkest);
   text-align: center;
+  padding: 5px;
+}
+
+.index-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 .footer a {
@@ -214,6 +221,7 @@ p {
   display: inline-block;
   border: 1px solid var(--darkest);
   box-sizing: border-box;
+  margin-bottom: 0px;
 }
 
 /* Set a style for all buttons */
@@ -316,7 +324,7 @@ button:hover {
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
-  background-color: var(--lightest);
+  background-color: var(--darker);
 }
 
 .pass {
@@ -325,7 +333,7 @@ button:hover {
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
-  background-color: var(--lightest);
+  background-color: var(--darker);
 }
 
 .text:focus {
@@ -639,15 +647,62 @@ width: 20%;
   flex-direction: column;
 }
 
-/* .cat-label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+#register-btn-container {
+  padding: 10px;
 }
 
-#cat-input {
-  margin-top: 5px;
-} */
+#register-submit-btn {
+  width: fit-content;
+}
+
+#sign-in-btn-container {
+  padding: 10px;
+}
+
+#sign-in-submit-btn {
+  width: fit-content;
+}
+
+.index-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.index-text {
+  text-align: center;
+}
+
+.index-text h1 {
+  font-size: 3em;
+  padding: 10px;
+}
+
+.index-text h3 {
+  padding-bottom: 50px;
+}
+
+.text-button-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid var(--darkest);
+  border-radius: 10px;
+  padding: 30px 100px 20px 100px;
+}
+
+#register-btn {
+  width: 100px;
+}
+
+#sign-in-btn {
+  width: 100px;
+}
+
+.index-text{
+  color: var(--darkest);
+}
 
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)} 
