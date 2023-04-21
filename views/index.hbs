@@ -1,3 +1,48 @@
+{{!-- https://www.w3schools.com/howto/howto_css_signup_form.asp --}}
+{{!-- https://www.w3schools.com/howto/howto_css_login_form.asp --}}
+
+<section class="index-section">
+  <div class="text-button-div">
+    <div class="index-text">
+      <h1>T@sks</h1>
+      <h3>What will your team accomplish today?</h3>
+    </div>
+
+    <div class="index-btn-container">
+      <!-- Button to open the modal -->
+      <button id="register-btn" onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
+
+      <!-- Button to open the modal login form -->
+      <button id="sign-in-btn" onclick="document.getElementById('id02').style.display='block'">Login</button>
+    </div>
+  </div> 
+</section> 
+
+<!-- The Modal (contains the Sign Up form) -->
+{{!-- <div id="id01" class="modal">
+
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">x</span>
+  <form id="register-form" class="modal-content animate" action="/" method="POST">
+
+    <div id="register-container" class="container">
+      <h1>Register</h1>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input id="register-email" type="email" class="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input id="register-password" type="password" class="pass" placeholder="Enter Password" name="password" required>
+
+      <div id="register-btn-container" class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" id="register-cancel-btn"
+          class="cancelbtn">Cancel</button>
+        <button id="register-submit-btn" type="submit" class="signup">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
 <!-- The Modal -->
 <div id="id02" class="modal">
   <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">x</span>
