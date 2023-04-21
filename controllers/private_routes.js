@@ -16,7 +16,6 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
     });
 });
 
-
 router.post("/cards", async (req, res) => {
   try {
     const { task_title, task_desc, task_cat, teammate_id } = req.body;
