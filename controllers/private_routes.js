@@ -13,29 +13,29 @@ function isAuthenticated(req, res, next) {
 router.get("/dashboard", isAuthenticated, async (req, res) => {
     const user = await User.findByPk(req.session.user_id);
 
-    const projects = await Project.findAll({
-      raw: true, 
+    const project = await Project.findAll({
+      raw: true,
     });
 
     const users = await User.findAll({
-      raw: true, 
+      raw: true,
     });
 
     const cards = await Card.findAll({
-      raw: true, 
+      raw: true,
     });
 
     res.render("dashboard", {
         email: user.email,
         users: users,
-        projects: projects,
+        project: project,
         cards: cards
     });
 });
 
-router.get("/projects", isAuthenticated, async (req, res) => {
+router.get("/project", isAuthenticated, async (req, res) => {
   const user = await User.findByPk(req.session.user_id);
-  res.render("projects", {
+  res.render("project", {
       email: user.email
   });
 });
