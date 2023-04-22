@@ -4,6 +4,26 @@ toggle between hiding and showing the dropdown content */
 function dropDownUser() {
   document.getElementById("userDropdown").classList.toggle("show");
 }
+function dropDownUserAfter() {
+  document.getElementById("userDropdown").classList.toggle("hide");
+}
+
+function selectUser(e) {
+  console.log("User clicked ");
+  console.log(e);
+  //e.target.text //email 
+  //e.target.attributes.user_id.value
+  document.querySelector('.selected-user p').innerHTML = e.target.text;
+  document.querySelector('.selected-user p').setAttribute('user_id', e.target.attributes.user_id.value);
+  dropDownUserAfter()
+}
+
+const aTags = document.querySelectorAll("#userDropdown > a");
+for(let aTag of aTags) {
+  aTag.onclick = selectUser;
+}
+
+
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {

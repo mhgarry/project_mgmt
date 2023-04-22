@@ -37,22 +37,31 @@
 
       <div class="cat-user-modal-div">
         <label name="cat-label" class="cat-label">Category</label>
-        <input id="cat-input" type="text">
+        <input id="cat-input" class="cat-input" type="text">
+
+<div class="selected-user">
+  <p> </p>
+</div>
 
         <div class="dropdown">
-          <button onclick="dropDownUser()" class="dropbtn">Assign a Teammate</button>
-          <div id="userDropdown" class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </div>
+          <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
 
+          <div id="userDropdown" class="dropdown-content">
+           {{#each users}} 
+            <a user_id="{{this.id}}" href="#">{{this.email}}</a>
+           {{/each}}
+          </div>
+         
+          
+        </div>
+        <div class="">
+      <input type="button" id="cancel-task-btn" value='Cancel'>
+      <button type="submit" id="submit-task-btn">Submit</button>
+      </div>
       </div>
       </form>
 
-      <button id="cancel-task-btn">Cancel</button>
-      <button id="submit-task-btn">Submit</button>
+
     </div>
   </div>
 </div>
@@ -66,9 +75,11 @@
   <div id="proj-list">
     <h3>My Projects</h3>
 
+  {{#each projects}}
     <div class="proj-card">
-      <h5>Project Title</h5>
+      <h5>{{this.proj_title}}</h5>
     </div>
+  {{/each}}
 
   </div>
 
@@ -78,17 +89,17 @@
     <div id="my-to-do" class="task-type-container">
       <h4>To Do</h4>
       <div class="task-card-container">
+        {{#each cards}}
         <div class="task-card">
-          <h5>Task Title</h5>
-          <p class="task-test">Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.</p>
+          <h5>{{this.task_title}}</h5>
+          <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
-            <span class="badge">Category</span>
-            <span class="badge">User Assigned</span>
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_id}}</span>
           </div>
         </div>
-        <div class="task-card">
+        {{/each}}
+        {{!-- <div class="task-card">
           <h5>Task Title</h5>
           <p class="task-test">Lorem ipsum dolor sit amet, consectetur
             adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -151,7 +162,7 @@
             <span class="badge">Category</span>
             <span class="badge">User Assigned</span>
           </div>
-        </div>
+        </div> --}}
       </div>
 
     </div>

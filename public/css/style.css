@@ -156,7 +156,7 @@ p {
   margin: auto;
   padding: 10px;
   border-radius: 10px;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .user-cat {
@@ -488,7 +488,7 @@ button:hover {
 .task-card-container {
   display: inline-flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px;
 }
 
