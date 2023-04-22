@@ -8,36 +8,67 @@ function dropDownUserAfter() {
   document.getElementById("userDropdown").classList.remove("show");
 }
 
+function dropDownStatus() {
+  document.getElementById("statusDropdown").classList.toggle("show");
+}
+function dropDownStatusAfter() {
+  document.getElementById("statusDropdown").classList.remove("show");
+}
+
 function selectUser(e) {
-  console.log("User clicked ");
+  console.log("Status clicked ");
+  console.log(e);
+  document.querySelector('.selected-user p').innerHTML = e.target.text;
+  document.querySelector('.selected-user p').setAttribute('status', e.target.text);
+  dropDownUserAfter()
+}
+
+function selectStatus(e) {
+  console.log("Status clicked ");
   console.log(e);
   //e.target.text //email 
   //e.target.attributes.user_id.value
-  document.querySelector('.selected-user p').innerHTML = e.target.text;
-  document.querySelector('.selected-user p').setAttribute('user_id', e.target.attributes.user_id.value);
+  document.querySelector('.selected-status p').innerHTML = e.target.text;
+  document.querySelector('.selected-status p').setAttribute('user_id', e.target.attributes.user_id.value);
   dropDownUserAfter()
 }
 
 const aTags = document.querySelectorAll("#userDropdown > a");
 for(let aTag of aTags) {
-  aTag.onclick = selectUser;
+  aTag.onclick = selectStatus;
 }
 
-
+const aTags2 = document.querySelectorAll("#statusDropdown > a");
+for(let aTag2 of aTags2) {
+  aTag2.onclick = selectStatus;
+}
 
 // Close the dropdown menu if the user clicks outside of it
-window.onclick = function (event) {
-  if (!event.target.matches(".dropbtn")) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
-};
+// window.onclick = function (event) {
+//   if (!event.target.matches(".Status")) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("show")) {
+//         openDropdown.classList.remove("show");
+//       }
+//     }
+//   }
+// };
+
+// window.onclick = function (event) {
+//   if (!event.target.matches(".dropbtTeam")) {
+//     var dropdowns = document.getElementsByClassName("dropdown-contentTeam");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("show")) {
+//         openDropdown.classList.remove("show");
+//       }
+//     }
+//   }
+// };
 
 // Get the modal
 const modal = document.getElementById("task-modal");

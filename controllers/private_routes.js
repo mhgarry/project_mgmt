@@ -60,11 +60,17 @@ router.get("/edit_card", isAuthenticated, async (req, res) => {
       raw: true,
     });
 
+    let statuses = cards.map((card) => { 
+      return card.status; 
+    })
+    statuses = statuses.filter((value, index, array) => array.indexOf(value) === index);
+
   res.render("edit_card", {
       email: user.email,
       users: users,
       project: project,
-      cards: cards
+      cards: cards,
+      statuses: statuses
   });
 });
 
