@@ -41,6 +41,13 @@ body {
   align-items: baseline;
 }
 
+.nav-img {
+  float: left;
+  display: flex;
+  align-items: center;
+  height: 45px;
+}
+
 .topnav img {
   float: left;
   padding: 5px 5px 0px 5px;
@@ -59,6 +66,8 @@ body {
   background-color: var(--darkest);
   color: var(--lightest);
 }
+
+
 
 /* Style the search box inside the navigation bar */
 /* .topnav input[type=text] {
@@ -489,14 +498,16 @@ button:hover {
   display: inline-flex;
   flex-direction: row;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding: 20px;
+
 }
 
 .task-card {
   padding: 10px;
   border: 4px solid var(--darkest);
   border-radius: 10px;
-  width: 50%;
+  width: 48%;
   background-color: var(--lighter);
   margin-left: 5px;
   margin-right: 5px;
