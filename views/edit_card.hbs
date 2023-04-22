@@ -1,0 +1,34 @@
+<div id="task-modal" class="modal">
+  <div id="task-modal-content" class="modal-content">
+    <span class="close">&times;</span>
+    <div class="card">
+      {{!-- <div class="title-task-modal-div"> --}}
+        <form class="task-form" action="/cards" method="POST">
+          <label name="title-label" class="title-label">Title</label>
+          <input class="title-input" type="text">
+          <label name="task-label" class="task-label">Task Description</label>
+          <textarea class="task-descrip" rows="3" cols="62"></textarea>
+          {{!--
+      </div> --}}
+
+      <div class="cat-user-modal-div">
+        <label name="cat-label" class="cat-label">Category</label>
+        <input id="cat-input" type="text">
+
+        <div class="dropdown">
+          <button onclick="dropDownUser()" class="dropbtn">Assign a Teammate</button>
+          <div id="userDropdown" class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+
+      </div>
+      </form>
+
+      <button id="cancel-task-btn">Cancel</button>
+      <button id="submit-task-btn">Submit</button>
+    </div>
+  </div>
+</div>

@@ -10,8 +10,13 @@ function isAuthenticated(req, res, next) {
     next();
 }
 // adding data to the view for handlebars -CRS
+//****NEEDS WORK****
+// trying to get the value of the User email to post when a User posts */
 router.get("/dashboard", isAuthenticated, async (req, res) => {
     const user = await User.findByPk(req.session.user_id);
+    // const userEmail = await User.findOne({
+    //   where: { id: req.params.teammate_id }
+    // })
 
     const projects = await Project.findAll({
       raw: true, 
@@ -49,9 +54,11 @@ router.post("/cards", async (req, res) => {
   }
 });
 
-//added logic to only get cards for 1 user for dashboard page -CRS
+//***NEEDS WORK****
+// added logic to only get cards for user for dashboard page just to test
+// needs to be based on req.params which is missing -CRS
 
-async function getCardsForUserOne() {
+async function getCardsForOneUser() {
   try {
     const cards = await Card.findAll({
       where: { teammate_id: 1 }
@@ -62,7 +69,7 @@ async function getCardsForUserOne() {
   }
 }
 
-getCardsForUserOne().then(cards => {
+getCardsForOneUser().then(cards => {
   console.log(cards);
 });
 
