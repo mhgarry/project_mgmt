@@ -16,20 +16,35 @@
         <label name="cat-label" class="cat-label">Category</label>
         <input id="cat-input" class="cat-input" type="text">
 
-        <div class="selected-user">
-          <p> </p>
-        </div>
+        <div class="dropdown-div">
 
-        <div class="dropdown">
-          <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
-
-          <div id="userDropdown" class="dropdown-content">
-            {{#each users}}
-            <a user_id="{{this.id}}" href="#">{{this.email}}</a>
-            {{/each}}
+          <div class="selected-user">
+            <p> </p>
           </div>
 
+          <div class="dropdown">
+            <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
 
+            <div id="userDropdown" class="dropdown-content">
+              {{#each users}}
+              <a user_id="{{this.id}}" href="#">{{this.email}}</a>
+              {{/each}}
+            </div>
+          </div>
+
+          <div class="selected-status">
+            <p> </p>
+          </div>
+
+          <div class="dropdown">
+            <input type="button" onclick="dropDownStatus()" class="dropbtn" value='Change Status' />
+
+            <div id="statusDropdown" class="dropdown-content">
+              {{#each statuses}}
+              <a href="#">{{this}}</a>
+              {{/each}}
+            </div>
+          </div>
         </div>
         <div class="">
           <input type="button" id="cancel-task-btn" value='Cancel'>
@@ -41,4 +56,5 @@
 
     </div>
   </div>
-{{!-- </div> --}}
+  {{!--
+</div> --}}
