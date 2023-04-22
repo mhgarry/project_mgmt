@@ -47,8 +47,24 @@ router.get("/project", isAuthenticated, async (req, res) => {
 
 router.get("/edit_card", isAuthenticated, async (req, res) => {
   const user = await User.findByPk(req.session.user_id);
+
+  const project = await Project.findAll({
+      raw: true,
+    });
+
+    const users = await User.findAll({
+      raw: true,
+    });
+
+    const cards = await Card.findAll({
+      raw: true,
+    });
+
   res.render("edit_card", {
-      email: user.email
+      email: user.email,
+      users: users,
+      project: project,
+      cards: cards
   });
 });
 

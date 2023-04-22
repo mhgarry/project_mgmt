@@ -1,7 +1,8 @@
-<div id="task-modal" class="modal">
-  <div id="task-modal-content" class="modal-content">
+<!-- add the modal HTML inside the body -->
+{{!-- <div id="task-modal" class="modal"> --}}
+  <div id="task-modal-content" class="">
     <span class="close">&times;</span>
-    <div class="card">
+    <div class="card edit-card">
       {{!-- <div class="title-task-modal-div"> --}}
         <form class="task-form" action="/cards" method="POST">
           <label name="title-label" class="title-label">Title</label>
@@ -13,22 +14,31 @@
 
       <div class="cat-user-modal-div">
         <label name="cat-label" class="cat-label">Category</label>
-        <input id="cat-input" type="text">
+        <input id="cat-input" class="cat-input" type="text">
 
-        <div class="dropdown">
-          <button onclick="dropDownUser()" class="dropbtn">Assign a Teammate</button>
-          <div id="userDropdown" class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
+        <div class="selected-user">
+          <p> </p>
         </div>
 
+        <div class="dropdown">
+          <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
+
+          <div id="userDropdown" class="dropdown-content">
+            {{#each users}}
+            <a user_id="{{this.id}}" href="#">{{this.email}}</a>
+            {{/each}}
+          </div>
+
+
+        </div>
+        <div class="">
+          <input type="button" id="cancel-task-btn" value='Cancel'>
+          <button type="submit" id="submit-task-btn">Submit</button>
+        </div>
       </div>
       </form>
 
-      <button id="cancel-task-btn">Cancel</button>
-      <button id="submit-task-btn">Submit</button>
+
     </div>
   </div>
-</div>
+{{!-- </div> --}}
