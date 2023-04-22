@@ -1,57 +1,51 @@
+const db = require("./connection");
 const User = require("../models/User");
 const Project = require("../models/Project");
 const Card = require("../models/Card");
-const db = require("./connection");
-// const { Project } = require("../models");
 
-db.sync ({force: true}).then(() => {
-    User.bulkCreate([
-        {
-            email: "scelsi@mail.com",
-            password: "password"
-        },
-        {
-            email: "moraga@mail.com",
-            password: "password"
-        },
-        {
-            email: "garry@mail.com",
-            password: "password"
-        }
-    ]).then(()=> {
-        console.log("----------USERS SEEDED!----------")
-    })
+const seed = async () => {
+  try {
+    await db.sync({ force: true });
 
-    Project.bulkCreate([
-        {
-            proj_title: "Fullstack Project"
-        }
-    ]).then(() => {
-        console.log("----------PROJECTS SEEDED!----------")
-    })
+    const users = await User.bulkCreate([
+      { email: "scelsi@mail.com", password: "password" },
+      { email: "moraga@mail.com", password: "password" },
+      { email: "garry@mail.com", password: "password" },
+    ]);
+    console.log("----------USERS SEEDED!----------");
 
-    Card.bulkCreate([
-        {
-            task_title: "Build HTML",
-            task_desc: "index, login, register, and dashboard",
-            task_cat: "Frontend",
-            teammate_id: 1
-        },
-        {
-            task_title: "CSS",
-            task_desc: "research best frameworks",
-            task_cat: "Frontend",
-            teammate_id: 2
-        },
-        {
-            task_title: "Database",
-            task_desc: "schema.sql, models, and seeds.js",
-            task_cat: "Backend",
-            teammate_id: 3
-        },
+    const project = await Project.create({
+      proj_title: "Fullstack Project",
+      team_id: 1, // replace with the actual team ID
+    });
+    console.log("----------PROJECTS SEEDED!----------");
 
-    ]).then(() => {
-        console.log("----------CARDS SEEDED!----------");
-        process.exit();
-    })
-})
+    const cards = await Card.bulkCreate([
+      {
+        task_title: "Build HTML",
+        task_desc: "index, login, register, and dashboard",
+        task_cat: "Frontend",
+        teammate_id: 1, // replace with the actual user ID
+      },
+      {
+        task_title: "CSS",
+        task_desc: "research best frameworks",
+        task_cat: "Frontend",
+        teammate_id: 2, // replace with the actual user ID
+      },
+      {
+        task_title: "Database",
+        task_desc: "schema.sql, models, and seeds.js",
+        task_cat: "Backend",
+        teammate_id: 3, // replace with the actual user ID
+      },
+    ]);
+    console.log("----------CARDS SEEDED!----------");
+  } catch (err) {
+    console.error(err);
+  } finally {
+    process.exit();
+  }
+};
+
+seed();
