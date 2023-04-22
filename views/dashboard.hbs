@@ -6,7 +6,7 @@
   <div class="nav-content">
     <a href="">Tasks</a>
     <a class="active" href="dashboard">Dashboard</a>
-    <a href="projects">Projects</a>
+    <a href="project">Project</a>
 
     <div class="right">
       <div class="search">
@@ -47,12 +47,12 @@
           <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
 
           <div id="userDropdown" class="dropdown-content">
-           {{#each users}} 
+           {{#each users}}
             <a user_id="{{this.id}}" href="#">{{this.email}}</a>
            {{/each}}
           </div>
-         
-          
+
+
         </div>
         <div class="">
       <input type="button" id="cancel-task-btn" value='Cancel'>
@@ -73,9 +73,9 @@
   </div>
 
   <div id="proj-list">
-    <h3>My Projects</h3>
+    <h3>My Project</h3>
 
-  {{#each projects}}
+  {{#each project}}
     <div class="proj-card">
       <h5>{{this.proj_title}}</h5>
     </div>
