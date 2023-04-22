@@ -2,7 +2,7 @@
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function dropDownUser() {
-  document.getElementById("userDropdown").classList.add("show");
+  document.getElementById("userDropdown").classList.toggle("show");
 }
 function dropDownUserAfter() {
   document.getElementById("userDropdown").classList.remove("show");
