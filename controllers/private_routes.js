@@ -45,6 +45,21 @@ router.get("/project", isAuthenticated, async (req, res) => {
   });
 });
 
+router.get("/edit_card", isAuthenticated, async (req, res) => {
+  const user = await User.findByPk(req.session.user_id);
+  res.render("edit_card", {
+      email: user.email
+  });
+});
+
+// router.put("/editcard", isAuthenticated, async (req, res) => {
+//   const user = await User.findByPk(req.session.user_id);
+//   res.send("edit_card", {
+//       email: user.email
+//   });
+// });
+
+
 router.post("/cards", async (req, res) => {
   try {
     const { task_title, task_desc, task_cat, teammate_id } = req.body;
