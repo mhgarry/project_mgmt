@@ -1,17 +1,23 @@
 const postCard = async function (event) {
    event.preventDefault();
    
-   const title = document.querySelector(".title-input").value;
-   const description = document.querySelector(".task-descrip").value;
+   const task_title = document.querySelector(".title-input");
+   const task_desc = document.querySelector(".task-descrip");
+   const task_cat = document.querySelector(".cat-input");
 
     await fetch ("/cards", {
         method: "POST",
         body: JSON.stringify({
-            title,
-            description
+            'task_title': task_title.value,
+            'task_desc': task_desc.value,
+            'task_cat': task_cat.value
         }),
         headers: { "Content-Type": "application/json"}
     })
+
+    task_title.value = '';
+    task_desc.value = "";
+    task_cat.value = ""
 
 }
 
