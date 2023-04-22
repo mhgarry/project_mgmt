@@ -5,7 +5,7 @@ const Card = require("../models/Card");
 
 function isAuthenticated(req, res, next) {
     if (!req.session.user_id) {
-        return res.redirect("/login");
+        return res.redirect("/");
     }
     next();
 }
@@ -18,24 +18,31 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
     //   where: { id: req.params.teammate_id }
     // })
 
-    const projects = await Project.findAll({
-      raw: true, 
+    const project = await Project.findAll({
+      raw: true,
     });
 
     const users = await User.findAll({
-      raw: true, 
+      raw: true,
     });
 
     const cards = await Card.findAll({
-      raw: true, 
+      raw: true,
     });
 
     res.render("dashboard", {
         email: user.email,
         users: users,
-        projects: projects,
+        project: project,
         cards: cards
     });
+});
+
+router.get("/project", isAuthenticated, async (req, res) => {
+  const user = await User.findByPk(req.session.user_id);
+  res.render("project", {
+      email: user.email
+  });
 });
 
 router.post("/cards", async (req, res) => {

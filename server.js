@@ -34,7 +34,7 @@ app.use(passport.session({
 }));
 
 
-app.use(routes);
+app.use("/", [routes]);
 
 // app.engine('hbs', engine({
 //   extname: '.hbs' // change the file extension from .handlebars to .hbs
