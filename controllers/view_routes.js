@@ -6,29 +6,16 @@ function isLoggedIn(req, res, next) {
   next();
 }
 
-router.get('/', (req, res) => {
-  res.render('index', {
-
-  });
+router.get('/', isLoggedIn, (req, res) => {
+  res.render('index');
 });
 
-router.get('/project', (req, res) => {
-  res.render('project', {
 
-  });
-});
-
-// router.get('/dashboard', isLoggedIn, (req, res) => {
-//   res.render('dashboard', {
-
-//   });
-// });
-
-router.get("/login", (req, res) => {
+router.get("/login", isLoggedIn, (req, res) => {
   res.render("login")
 });
 
-router.get("/register", (req, res) => {
+router.get("/register", isLoggedIn, (req, res) => {
   res.render("register")
 });
 

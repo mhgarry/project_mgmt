@@ -11,11 +11,11 @@ router.post("/login", async (req, res) => {
         }
     });
 
-    if (!user) return res.redirect("/register");
+    if (!user) return res.redirect("/");
 
     const valid_pass = await user.validatePass(user_data.password);
 
-    if (!valid_pass) return res.redirect("/login");
+    if (!valid_pass) return res.redirect("/");
 
     req.session.user_id = user.id;
 
@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
         res.redirect("/dashboard");
 
     } catch (err) {
-        res.redirect("/login");
+        res.redirect("/");
     }
 });
 
