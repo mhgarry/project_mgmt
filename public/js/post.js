@@ -5,7 +5,7 @@ const postCard = async function (event) {
    const task_desc = document.querySelector(".task-descrip");
    const task_cat = document.querySelector(".cat-input");
    const teammate_id = document.querySelector
-   ("#userDropdown > a")
+   (".selected-user > p")
    
     await fetch ("/cards", {
         method: "POST",
@@ -13,16 +13,18 @@ const postCard = async function (event) {
             'task_title': task_title.value,
             'task_desc': task_desc.value,
             'task_cat': task_cat.value,
-            'teammate_id': teammate_id.value
+            'teammate_id': teammate_id.attributes.user_id.value
         }),
         headers: { "Content-Type": "application/json"}
-    })
+    }).then((response) => {
+        window.location = response.url;
+    });
 
     task_title.value = '';
     task_desc.value = "";
     task_cat.value = "";
     teammate_id.value = ""
-
+    
 }
 
 document.querySelector(".task-form").addEventListener("submit", postCard)

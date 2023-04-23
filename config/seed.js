@@ -32,12 +32,14 @@ const seed = async () => {
         task_desc: "research best frameworks",
         task_cat: "Frontend",
         teammate_id: 2, // replace with the actual user ID
+        status: "In progress"
       },
       {
         task_title: "Database",
         task_desc: "schema.sql, models, and seeds.js",
         task_cat: "Backend",
         teammate_id: 3, // replace with the actual user ID
+        status: "Completed"
       },
     ]);
     console.log("----------CARDS SEEDED!----------");

@@ -26,20 +26,49 @@ router.get("/dashboard", isAuthenticated, async (req, res) => {
       raw: true,
     });
 
-    const cards = await Card.findAll({
+    let cards = await Card.findAll({
+      where: {
+        teammate_id: req.session.user_id
+      },
       raw: true,
     });
+
+    cards = addTeammateEmail(cards, users);
+
+    let ipc = cards.filter(card =>  
+      new RegExp('In Progress', "i").test(card.status)
+    );
+
+    let tdc = cards.filter(card =>  
+      new RegExp('To do', "i").test(card.status)
+    );
+
+    let cc = cards.filter(card =>  
+      new RegExp('Completed', "i").test(card.status)
+    );
+
+    let us = cards.filter(user =>
+      new RegExp('${user.email}', "i").test(user.id)
+      )
 
     res.render("dashboard", {
         email: user.email,
         users: users,
         project: project,
-        cards: cards
+        // cards: cards,
+        todo_cards: tdc,
+        inprogress_cards: ipc,
+        completed_cards: cc
     });
 });
 
+
 router.get("/project", isAuthenticated, async (req, res) => {
   const user = await User.findByPk(req.session.user_id);
+  // const userEmail = await User.findOne({
+  //   where: { id: req.params.teammate_id }
+  // })
+
   const project = await Project.findAll({
     raw: true,
   });
@@ -48,21 +77,32 @@ router.get("/project", isAuthenticated, async (req, res) => {
     raw: true,
   });
 
-  const cards = await Card.findAll({
+  let cards = await Card.findAll({
     raw: true,
   });
 
-  let statuses = cards.map((card) => { 
-    return card.status; 
-  })
-  statuses = statuses.filter((value, index, array) => array.indexOf(value) === index);
+  cards = addTeammateEmail(cards, users);
+
+  let ipc = cards.filter(card =>  
+    new RegExp('In Progress', "i").test(card.status)
+  );
+
+  let tdc = cards.filter(card =>  
+    new RegExp('To do', "i").test(card.status)
+  );
+
+  let cc = cards.filter(card =>  
+    new RegExp('Completed', "i").test(card.status)
+  );
 
   res.render("project", {
       email: user.email,
       users: users,
       project: project,
-      cards: cards,
-      statuses: statuses
+      // cards: cards,
+      todo_cards: tdc,
+      inprogress_cards: ipc,
+      completed_cards: cc
   });
       
 });
@@ -103,32 +143,32 @@ router.get("/edit_card", isAuthenticated, async (req, res) => {
 //   });
 // });
 
-async function getDashboardData(req) {
-  const user = await User.findByPk(req.session.user_id);
-  const project = await Project.findAll({
-    raw: true,
-  });
-  const users = await User.findAll({
-    raw: true,
-  });
-  const cards = await Card.findAll({
-    where: {
-      teammate_id: req.session.user_id
-    },
-    raw: true,
-  });
-  return {
-    email: user.email,
-    users: users,
-    project: project,
-    cards: cards
-  };
-}
+// async function getDashboardData(req) {
+//   const user = await User.findByPk(req.session.user_id);
+//   const project = await Project.findAll({
+//     raw: true,
+//   });
+//   const users = await User.findAll({
+//     raw: true,
+//   });
+//   const cards = await Card.findAll({
+//     where: {
+//       teammate_id: req.session.user_id
+//     },
+//     raw: true,
+//   });
+//   return {
+//     email: user.email,
+//     users: users,
+//     project: project,
+//     cards: cards
+//   };
+// }
 
-router.get("/dashboard", isAuthenticated, async (req, res) => {
-  const data = await getDashboardData(req);
-  res.render("dashboard", data);
-});
+// router.get("/dashboard", isAuthenticated, async (req, res) => {
+//   const data = await getDashboardData(req);
+//   res.render("dashboard", data);
+// });
 
 router.post("/cards", async (req, res) => {
   try {
@@ -139,8 +179,11 @@ router.post("/cards", async (req, res) => {
       task_cat,
       teammate_id,
     });
-    const data = await getDashboardData(req)
-    res.redirect("/dashboard");
+    //console.log(req);
+    console.log(req.headers)
+    //const data = await getDashboardData(req)
+    res.redirect(req.headers.referer);
+    //return data;
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
@@ -169,5 +212,18 @@ router.post("/cards", async (req, res) => {
   }
   
   })
+
+
+function addTeammateEmail(cards, users) {
+  for(let card of cards) {
+    for(let user of users) {
+      if(card.teammate_id == user.id) {
+        card.teammate_email = user.email;
+        break;
+      }
+    }
+  }
+  return cards;
+};
 
 module.exports = router;

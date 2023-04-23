@@ -4,7 +4,7 @@
   </div>
 
   <div class="nav-content">
-    <a href="">Tasks</a>
+    <a href="#" class='add-task'>Tasks</a>
     <a class="active" href="dashboard">Dashboard</a>
     <a href="project">Project</a>
 
@@ -90,7 +90,7 @@
       <h4>To Do</h4>
       <div class="task-card-container">
         
-        {{#each cards}}
+        {{#each todo_cards}}
         <a href="/edit_card/{{this.id}}">
         <div class="task-card">
           <h5>{{this.task_title}}</h5>
@@ -98,7 +98,49 @@
           <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
             <span class="badge">{{this.task_cat}}</span>
-            <span class="badge">{{this.teammate_id}}</span>
+            <span class="badge">{{this.teammate_email}}</span>
+          </div>
+        </div>
+        {{/each}}
+
+      </div>
+    </div>
+
+    <div id="my-to-do" class="task-type-container">
+      <h4>In Progress</h4>
+      <div class="task-card-container">
+        
+        {{#each inprogress_cards}}
+
+        <a href="/edit_card/{{this.id}}">
+        <div class="task-card">
+          <h5>{{this.task_title}} {{this.status}}</h5>
+          </a>
+          <p class="task-test">{{this.task_desc}}</p>
+          <div class="user-cat">
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_email}}</span>
+          </div>
+        </div>
+        {{/each}}
+
+      </div>
+    </div>
+
+        <div id="my-to-do" class="task-type-container">
+      <h4>Completed</h4>
+      <div class="task-card-container">
+        
+        {{#each completed_cards}}
+
+        <a href="/edit_card/{{this.id}}">
+        <div class="task-card">
+          <h5>{{this.task_title}} {{this.status}}</h5>
+          </a>
+          <p class="task-test">{{this.task_desc}}</p>
+          <div class="user-cat">
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_email}}</span>
           </div>
         </div>
         {{/each}}
