@@ -170,26 +170,4 @@ router.post("/cards", async (req, res) => {
   
   })
 
-
-
-
-//***NEEDS WORK****
-// added logic to only get cards for user for dashboard page just to test
-// needs to be based on req.params which is missing -CRS
-
-async function getCardsForOneUser() {
-  try {
-    const cards = await Card.findAll({
-      where: { teammate_id: 1 }
-    });
-    return cards;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-getCardsForOneUser().then(cards => {
-  console.log(cards);
-});
-
 module.exports = router;

@@ -9,10 +9,12 @@
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
 }
 
 body {
   background-color: var(--lightest);
+    text-decoration: none;
 }
 
 /* https://www.w3schools.com/howto/howto_css_searchbar.asp */
@@ -195,6 +197,10 @@ p {
   color: var(--darkest);
   text-align: center;
   padding: 5px;
+}
+
+.footer a {
+  text-decoration: underline;
 }
 
 .index-footer {
@@ -501,7 +507,6 @@ button:hover {
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 20px;
-
 }
 
 .task-card {
@@ -517,6 +522,10 @@ button:hover {
 
 .task-card h5 {
   padding-bottom: 5px;
+  color: var(--darkest);
+  text-decoration: none !important;
+  cursor: pointer;
+  color: var(--darkest)
 }
 
 #task-modal {
@@ -762,6 +771,55 @@ button:hover {
 .selected-status-div {
   display: flex;
   flex-direction: column;
+}
+
+.card {
+  border: 4px solid var(--darkest);
+  border-radius: 10px;
+  width: 90%;
+  margin: auto;
+}
+
+
+/* here is the card css we need if we have to redo the edit card css */
+.card h5 {
+  color: var(--darkest);
+  text-align: start;
+  padding: 7px;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: medium;
+  color: var(--darkest);
+}
+
+.task-test {
+  border: 2px solid var(--darkest);
+  background-color: var(--lightest);
+  width: 91%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  /* text-align: justify; */
+}
+
+.user-cat {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 12px;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+
+.badge {
+  background-color: var(--darkest);
+  color: var(--lightest);
+  padding: 5px 8px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: medium;
 }
 
 @-webkit-keyframes animatezoom {
