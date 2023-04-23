@@ -1,0 +1,8 @@
+<h1>My Cards</h1>
+{{#each cards}}
+<div class="card">
+  <h2>{{this.task_title}}</h2>
+  <p>{{this.task_desc}}</p>
+  <p>Category: {{this.task_cat}}</p>
+</div>
+{{/each}}
