@@ -18,31 +18,35 @@
 
         <div class="dropdown-div">
 
-          <div class="selected-user">
-            <p> </p>
-          </div>
+          <div class="selected-user-div">
+            <div class="selected-user">
+              <p> </p>
+            </div>
 
-          <div class="dropdown">
-            <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
+            <div class="dropdown">
+              <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
 
-            <div id="userDropdown" class="dropdown-content">
-              {{#each users}}
-              <a user_id="{{this.id}}" href="#">{{this.email}}</a>
-              {{/each}}
+              <div id="userDropdown" class="dropdown-content">
+                {{#each users}}
+                <a user_id="{{this.id}}" href="#">{{this.email}}</a>
+                {{/each}}
+              </div>
             </div>
           </div>
 
-          <div class="selected-status">
-            <p> </p>
-          </div>
+          <div class="selected-status-div">
+            <div class="selected-status">
+              <p> </p>
+            </div>
 
-          <div class="dropdown">
-            <input type="button" onclick="dropDownStatus()" class="dropbtn" value='Change Status' />
+            <div class="dropdown">
+              <input type="button" onclick="dropDownStatus()" class="dropbtn" id="change-status"value='Change Status' />
 
-            <div id="statusDropdown" class="dropdown-content">
-              {{#each statuses}}
-              <a href="#">{{this}}</a>
-              {{/each}}
+              <div id="statusDropdown" class="dropdown-content">
+                {{#each statuses}}
+                <a href="#">{{this}}</a>
+                {{/each}}
+              </div>
             </div>
           </div>
         </div>

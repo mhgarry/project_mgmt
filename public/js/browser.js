@@ -1,6 +1,8 @@
 // https://www.w3schools.com/howto/howto_js_dropdown.asp
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
+
+// USER
 function dropDownUser() {
   document.getElementById("userDropdown").classList.toggle("show");
 }
@@ -8,19 +10,25 @@ function dropDownUserAfter() {
   document.getElementById("userDropdown").classList.remove("show");
 }
 
+function selectUser(e) {
+  console.log("User clicked ");
+  console.log(e);
+  document.querySelector('.selected-user p').innerHTML = e.target.text;
+  document.querySelector('.selected-user p').setAttribute('user_id', e.target.attributes.user_id.value);
+  dropDownUserAfter()
+}
+
+const aTags = document.querySelectorAll("#userDropdown > a");
+for(let aTag of aTags) {
+  aTag.onclick = selectUser;
+}
+
+// STATUS
 function dropDownStatus() {
   document.getElementById("statusDropdown").classList.toggle("show");
 }
 function dropDownStatusAfter() {
   document.getElementById("statusDropdown").classList.remove("show");
-}
-
-function selectUser(e) {
-  console.log("Status clicked ");
-  console.log(e);
-  document.querySelector('.selected-user p').innerHTML = e.target.text;
-  document.querySelector('.selected-user p').setAttribute('status', e.target.text);
-  dropDownUserAfter()
 }
 
 function selectStatus(e) {
@@ -29,13 +37,8 @@ function selectStatus(e) {
   //e.target.text //email 
   //e.target.attributes.user_id.value
   document.querySelector('.selected-status p').innerHTML = e.target.text;
-  document.querySelector('.selected-status p').setAttribute('user_id', e.target.attributes.user_id.value);
+  document.querySelector('.selected-status p').setAttribute('status', e.target.text);
   dropDownUserAfter()
-}
-
-const aTags = document.querySelectorAll("#userDropdown > a");
-for(let aTag of aTags) {
-  aTag.onclick = selectStatus;
 }
 
 const aTags2 = document.querySelectorAll("#statusDropdown > a");

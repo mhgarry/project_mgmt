@@ -81,6 +81,32 @@ router.get("/edit_card", isAuthenticated, async (req, res) => {
 //   });
 // });
 
+async function getDashboardData(req) {
+  const user = await User.findByPk(req.session.user_id);
+  const project = await Project.findAll({
+    raw: true,
+  });
+  const users = await User.findAll({
+    raw: true,
+  });
+  const cards = await Card.findAll({
+    where: {
+      teammate_id: req.session.user_id
+    },
+    raw: true,
+  });
+  return {
+    email: user.email,
+    users: users,
+    project: project,
+    cards: cards
+  };
+}
+
+router.get("/dashboard", isAuthenticated, async (req, res) => {
+  const data = await getDashboardData(req);
+  res.render("dashboard", data);
+});
 
 router.post("/cards", async (req, res) => {
   try {
@@ -91,12 +117,39 @@ router.post("/cards", async (req, res) => {
       task_cat,
       teammate_id,
     });
-    res.status(201).json(newCard);
+    const data = await getDashboardData(req)
+    res.redirect("/dashboard");
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 });
+
+
+// Get one card
+  router.get("/edit_card/:id", isAuthenticated, async (req, res) => {
+    const card = await Card.findOne({
+      where: {
+        id: req.params.id,
+      },
+      raw: true,
+    })
+ 
+    if (card) {
+    res.render("edit_card", {
+      title: card.task_title,
+      description: card.task_desc,
+      category: card.task_cat,
+      assignedUser: card.teammate_id,
+    });
+  } else {
+    res.status(404).send("Task not found")
+  }
+  
+  })
+
+
+
 
 //***NEEDS WORK****
 // added logic to only get cards for user for dashboard page just to test
@@ -118,4 +171,3 @@ getCardsForOneUser().then(cards => {
 });
 
 module.exports = router;
-
