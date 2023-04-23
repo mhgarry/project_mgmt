@@ -61,51 +61,67 @@
 <section class="columns-wrapper">
 <h1 id="project-name">Project Name</h1>
   <div class="row">
+    
     <div class="col-xs-4">
       <div class="box" id="to-do">
+           
         <h3 class="project">To Do</h3>
-
         <div class="card">
-          <h5>Task Title</h5>
-          <p class="task-test">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.</p>
+
+        {{#each cards}}
+        <a href="/edit_card/{{this.id}}">
+        <div class="task-card">
+          <h5>{{this.task_title}}</h5>
+          </a>
+          <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
-            <span class="badge">Category</span>
-            <span class="badge">User Assigned</span>
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_id}}</span>
           </div>
         </div>
+        {{/each}}
 
       </div>
     </div>
+
     <div class="col-xs-4">
       <div class="box" id="in-progress">
         <h3 class="project">In Progress</h3>
+      <div class="card">
 
-        <div class="card">
-          <h5>Task Title</h5>
-          <p class="task-test">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.</p>
+        {{#each cards}}
+        <a href="/edit_card/{{this.id}}">
+        <div class="task-card">
+          <h5>{{this.task_title}}</h5>
+          </a>
+          <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
-            <span class="badge">Category</span>
-            <span class="badge">User Assigned</span>
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_id}}</span>
           </div>
         </div>
+        {{/each}}
 
       </div>
     </div>
     <div class="col-xs-4">
       <div class="box" id="completed">
         <h3 class="project">Completed</h3>
+      <div class="card">
 
-        <div class="card">
-          <h5>Task Title</h5>
-          <p class="task-test">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.</p>
+        {{#each cards}}
+        <a href="/edit_card/{{this.id}}">
+        <div class="task-card">
+          <h5>{{this.task_title}}</h5>
+          </a>
+          <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
-            <span class="badge">Category</span>
-            <span class="badge">User Assigned</span>
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_id}}</span>
           </div>
         </div>
+        {{/each}}
+
 
       </div>
     </div>
