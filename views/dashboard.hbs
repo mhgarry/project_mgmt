@@ -39,25 +39,25 @@
         <label name="cat-label" class="cat-label">Category</label>
         <input id="cat-input" class="cat-input" type="text">
 
-<div class="selected-user">
-  <p> </p>
-</div>
+        <div class="selected-user">
+          <p> </p>
+        </div>
 
         <div class="dropdown">
           <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
 
           <div id="userDropdown" class="dropdown-content">
-           {{#each users}}
+            {{#each users}}
             <a user_id="{{this.id}}" href="#">{{this.email}}</a>
-           {{/each}}
+            {{/each}}
           </div>
 
 
         </div>
         <div class="">
-      <input type="button" id="cancel-task-btn" value='Cancel'>
-      <button type="submit" id="submit-task-btn">Submit</button>
-      </div>
+          <input type="button" id="cancel-task-btn" value='Cancel'>
+          <button type="submit" id="submit-task-btn">Submit</button>
+        </div>
       </div>
       </form>
 
@@ -75,11 +75,11 @@
   <div id="proj-list">
     <h3>My Project</h3>
 
-  {{#each project}}
+    {{#each project}}
     <div class="proj-card">
       <h5>{{this.proj_title}}</h5>
     </div>
-  {{/each}}
+    {{/each}}
 
   </div>
 
@@ -89,9 +89,12 @@
     <div id="my-to-do" class="task-type-container">
       <h4>To Do</h4>
       <div class="task-card-container">
+        
         {{#each cards}}
+        <a href="/edit_card/{{this.id}}">
         <div class="task-card">
           <h5>{{this.task_title}}</h5>
+          </a>
           <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
             <span class="badge">{{this.task_cat}}</span>
@@ -99,6 +102,7 @@
           </div>
         </div>
         {{/each}}
+
       </div>
     </div>
 

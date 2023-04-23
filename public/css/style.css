@@ -721,19 +721,47 @@ button:hover {
 .edit-card {
   padding: 20px;
   width: 40%;
+  font-weight: bold;
+}
+
+.edit-card label {
+  color: var(--darkest);
 }
 
 .dropdown-div {
   display: flex;
   flex-direction: row;
+  justify-content: start;
 }
 
 .dropdown {
-  margin: 5px, 5px, 5px, 0px,;
+  /* margin: 5px, 5px, 5px, 0px,; */
 }
 
 .dropdown:last-child {
+  /* margin-left: 5px; */
+}
+
+#change-status {
   margin-left: 10px;
+}
+
+.selected-user {
+  padding: 5px;
+}
+
+.selected-status {
+  padding: 5px;
+}
+
+.selected-user-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-status-div {
+  display: flex;
+  flex-direction: column;
 }
 
 @-webkit-keyframes animatezoom {
