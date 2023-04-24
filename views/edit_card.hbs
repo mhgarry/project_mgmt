@@ -1,60 +1,11 @@
-<!-- add the modal HTML inside the body -->
-{{!-- <div id="task-modal" class="modal"> --}}
-  <div id="task-modal-content" class="">
-    <span class="close">&times;</span>
-    <div class="card edit-card">
-      {{!-- <div class="title-task-modal-div"> --}}
-        <form class="task-form" action="/cards" method="POST">
-          <label name="title-label" class="title-label">Title</label>
-          <input class="title-input" type="text">
-          <label name="task-label" class="task-label">Task Description</label>
-          <textarea class="task-descrip" rows="3" cols="62"></textarea>
-          {{!--
-      </div> --}}
 
-      <div class="cat-user-modal-div">
-        <label name="cat-label" class="cat-label">Category</label>
-        <input id="cat-input" class="cat-input" type="text">
-
-        <div class="dropdown-div">
-
-          <div class="selected-user">
-            <p> </p>
-          </div>
-
-          <div class="dropdown">
-            <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
-
-            <div id="userDropdown" class="dropdown-content">
-              {{#each users}}
-              <a user_id="{{this.id}}" href="#">{{this.email}}</a>
-              {{/each}}
-            </div>
-          </div>
-
-          <div class="selected-status">
-            <p> </p>
-          </div>
-
-          <div class="dropdown">
-            <input type="button" onclick="dropDownStatus()" class="dropbtn" value='Change Status' />
-
-            <div id="statusDropdown" class="dropdown-content">
-              {{#each statuses}}
-              <a href="#">{{this}}</a>
-              {{/each}}
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <input type="button" id="cancel-task-btn" value='Cancel'>
-          <button type="submit" id="submit-task-btn">Submit</button>
-        </div>
-      </div>
-      </form>
-
-
-    </div>
+{{!-- {{#each card}} --}}
+<div class="card">
+  <h5>{{title}}</h5>
+  <p class="task-test">{{description}}</p>
+  <div class="user-cat">
+    <span class="badge">{{category}}</span>
+    <span class="badge">{{assignedUser}}</span>
   </div>
-  {{!--
-</div> --}}
+</div>
+{{!-- {{/each}} --}}

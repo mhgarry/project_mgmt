@@ -36,22 +36,31 @@
 
       <div class="cat-user-modal-div">
         <label name="cat-label" class="cat-label">Category</label>
-        <input id="cat-input" type="text">
+        <input id="cat-input" class="cat-input" type="text">
 
-        <div class="dropdown">
-          <button onclick="dropDownUser()" class="dropbtn">Assign a Teammate</button>
-          <div id="userDropdown" class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
+        <div class="selected-user">
+          <p> </p>
         </div>
 
+        <div class="dropdown">
+          <input type="button" onclick="dropDownUser()" class="dropbtn" value='Assign a Teammate' />
+
+          <div id="userDropdown" class="dropdown-content">
+            {{#each users}}
+            <a user_id="{{this.id}}" href="#">{{this.email}}</a>
+            {{/each}}
+          </div>
+
+
+        </div>
+        <div class="">
+          <input type="button" id="cancel-task-btn" value='Cancel'>
+          <button type="submit" id="submit-task-btn">Submit</button>
+        </div>
       </div>
       </form>
 
-      <button id="cancel-task-btn">Cancel</button>
-      <button id="submit-task-btn">Submit</button>
+
     </div>
   </div>
 </div>
@@ -59,53 +68,73 @@
 
 {{!-- https://www.w3schools.com/howto/howto_css_badge.asp --}}
 <section class="columns-wrapper">
+  <div class="h1">
 <h1 id="project-name">Project Name</h1>
+  </div>
   <div class="row">
+    
     <div class="col-xs-4">
       <div class="box" id="to-do">
+           
         <h3 class="project">To Do</h3>
+        <div class="">
 
-        <div class="card">
-          <h5>Task Title</h5>
-          <p class="task-test">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.</p>
+        {{#each todo_cards}}
+        <a href="/edit_card/{{this.id}}">
+        <div class="task-card task-card-project">
+          <h5>{{this.task_title}}</h5>
+          </a>
+          <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
-            <span class="badge">Category</span>
-            <span class="badge">User Assigned</span>
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_email}}</span>
           </div>
         </div>
+        {{/each}}
 
       </div>
     </div>
+
     <div class="col-xs-4">
       <div class="box" id="in-progress">
         <h3 class="project">In Progress</h3>
+      <div class="">
 
-        <div class="card">
-          <h5>Task Title</h5>
-          <p class="task-test">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.</p>
+{{#each inprogress_cards}}
+
+        <a href="/edit_card/{{this.id}}">
+        <div class="task-card task-card-project">
+          <h5>{{this.task_title}} {{this.status}}</h5>
+          </a>
+          <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
-            <span class="badge">Category</span>
-            <span class="badge">User Assigned</span>
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_email}}</span>
           </div>
         </div>
+        {{/each}}
 
       </div>
     </div>
     <div class="col-xs-4">
       <div class="box" id="completed">
         <h3 class="project">Completed</h3>
+      <div class="">
 
-        <div class="card">
-          <h5>Task Title</h5>
-          <p class="task-test">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.</p>
+        {{#each completed_cards}}
+
+        <a href="/edit_card/{{this.id}}">
+        <div class="task-card task-card-project">
+          <h5>{{this.task_title}} {{this.status}}</h5>
+          </a>
+          <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
-            <span class="badge">Category</span>
-            <span class="badge">User Assigned</span>
+            <span class="badge">{{this.task_cat}}</span>
+            <span class="badge">{{this.teammate_email}}</span>
           </div>
         </div>
+        {{/each}}
+
 
       </div>
     </div>
