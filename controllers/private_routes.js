@@ -176,6 +176,7 @@ router.post('/cards', async (req, res) => {
 
 // Get one card
 router.get('/edit_card/:id', isAuthenticated, async (req, res) => {
+  const user = await User.findByPk(req.session.user_id);
   const card = await Card.findOne({
     where: {
       id: req.params.id,
@@ -189,6 +190,7 @@ router.get('/edit_card/:id', isAuthenticated, async (req, res) => {
       description: card.task_desc,
       category: card.task_cat,
       assignedUser: card.teammate_id,
+      user: user.email,
     });
   } else {
     res.status(404).send('Task not found');

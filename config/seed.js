@@ -56,6 +56,28 @@ const seed = async () => {
         teammate_id: 4, // replace with the actual user ID
         status: 'In progress',
       },
+      {
+        task_title: 'Slides',
+        task_desc: "don't forget screenshots",
+        task_cat: 'Presentation',
+        teammate_id: 3, // replace with the actual user ID
+        status: 'In progress',
+      },
+      {
+        task_title: 'README',
+        task_desc: "add credits",
+        task_cat: 'Presentation',
+        teammate_id: 2, // replace with the actual user ID
+        status: 'Completed',
+      },
+      {
+        task_title: 'Handlebars',
+        task_desc: "render data on index page",
+        task_cat: 'Backend',
+        teammate_id: 1, // replace with the actual user ID
+        status: 'In Progress',
+      }
+
     ]);
     console.log('----------CARDS SEEDED!----------');
   } catch (err) {
