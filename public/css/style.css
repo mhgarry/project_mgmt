@@ -858,6 +858,11 @@ button:hover {
   margin-top: 20px;
 }
 
+.one-task-card {
+  margin: auto;
+  margin-top: 75px;
+}
+
 /* here is the card css we need if we have to redo the edit card css */
 /* .card h5 {
   color: var(--darkest);
