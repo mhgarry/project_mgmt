@@ -1,45 +1,44 @@
-const router = require("express").Router();
-const User = require("../models/User");
+const router = require('express').Router();
+const User = require('../models/User');
 
 // login post
-router.post("/login", async (req, res) => {
-    const user_data = req.body;
-    
-    const user = await User.findOne({
-        where: {
-            email: user_data.email
-        }
-    });
+router.post('/login', async (req, res) => {
+  const user_data = req.body;
 
-    if (!user) return res.redirect("/");
+  const user = await User.findOne({
+    where: {
+      email: user_data.email,
+    },
+  });
 
-    const valid_pass = await user.validatePass(user_data.password);
+  if (!user) return res.redirect('/');
 
-    if (!valid_pass) return res.redirect("/");
+  const valid_pass = await user.validatePass(user_data.password);
 
-    req.session.user_id = user.id;
+  if (!valid_pass) return res.redirect('/');
 
-    res.redirect("/dashboard");
+  req.session.user_id = user.id;
+
+  res.redirect('/dashboard');
 });
 
 // register post
-router.post("/register", async (req, res) => {
-    const user_data = req.body;
-    
-    try {
-        const user = await User.create(user_data);
-        req.session.user_id = user.id;
-        res.redirect("/dashboard");
+router.post('/register', async (req, res) => {
+  const user_data = req.body;
 
-    } catch (err) {
-        res.redirect("/");
-    }
+  try {
+    const user = await User.create(user_data);
+    req.session.user_id = user.id;
+    res.redirect('/dashboard');
+  } catch (err) {
+    res.redirect('/');
+  }
 });
 
 // user logout
-router.get("/logout", (req, res) => {
-    req.session.destroy();
-    res.redirect("/");
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
 });
 
 module.exports = router;
