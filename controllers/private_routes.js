@@ -3,11 +3,10 @@ const { User } = require("../models/User");
 const Project = require("../models/Project");
 const Card = require("../models/Card");
 
-function isAuthenticated(req, res, next) {
+function isAuthenticated(req, res) {
   if (!req.session.user_id) {
     return res.redirect("/");
   }
-  next();
 }
 
 router.get("/dashboard", isAuthenticated, async (req, res) => {

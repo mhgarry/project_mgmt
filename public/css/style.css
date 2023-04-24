@@ -99,7 +99,28 @@ body {
   padding-top: 10px;
 }
 
+<<<<<<< Updated upstream
 .columns-wrapper{
+=======
+/* __________CSS FOR PROJECT PAGE____________ */
+.columns-wrapper {
+  display: grid;
+  grid-template-columns: 1, 3fr;
+  grid-template-rows: auto, 1fr;
+  grid-template-areas:
+    "h1" "h1" "h1"
+    "todo" "in-progress completed";
+}
+
+.h1 {
+  /* grid-column: 1 / -1; */
+}
+.col-xs-4 {
+
+}
+
+/* .columns-wrapper{
+>>>>>>> Stashed changes
   display: flex;
   flex-wrap: wrap;
 }
@@ -296,7 +317,7 @@ button:hover {
   /* Position it in the top right corner outside of the modal */
   position: absolute;
   right: 25px;
-  top: 0; 
+  top: 0;
   color: var(--darkest);
   font-size: 35px;
   font-weight: bold;
@@ -431,7 +452,7 @@ button:hover {
   grid-gap: 2em;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto, 1fr;
-  grid-template-areas: 
+  grid-template-areas:
   "user user"
   "proj-list tasks-asgn";
 }
@@ -442,7 +463,7 @@ button:hover {
   grid-column: 1 / 3;
   text-align: center;
   padding: 10px;
-  color: var(--lightest); 
+  color: var(--lightest);
 }
 
 #proj-list {
@@ -736,13 +757,114 @@ button:hover {
   margin-left: 10px;
 }
 
+<<<<<<< Updated upstream
+=======
+.selected-user {
+  padding: 5px;
+}
+
+.selected-status {
+  padding: 5px;
+}
+
+.selected-user-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-status-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border: 4px solid var(--darkest);
+  border-radius: 10px;
+  width: 90%;
+  margin: auto;
+}
+
+.task-card-project {
+  margin: auto;
+
+}
+
+.task-test {
+  border: 2px solid var(--darkest);
+  background-color: var(--lightest);
+  width: 91%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.user-cat {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 12px;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+.badge {
+  background-color: var(--darkest);
+  color: var(--lightest);
+  padding: 5px 8px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+
+/* here is the card css we need if we have to redo the edit card css */
+/* .card h5 {
+  color: var(--darkest);
+  text-align: start;
+  padding: 7px;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: medium;
+  color: var(--darkest);
+}
+
+.task-test {
+  border: 2px solid var(--darkest);
+  background-color: var(--lightest);
+  width: 91%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  /* text-align: justify; */
+/* }
+
+.user-cat {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 12px;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+
+.badge {
+  background-color: var(--darkest);
+  color: var(--lightest);
+  padding: 5px 8px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: medium;
+} */
+
+>>>>>>> Stashed changes
 @-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
+  from {-webkit-transform: scale(0)}
   to {-webkit-transform: scale(1)}
 }
 
 @keyframes animatezoom {
-  from {transform: scale(0)} 
+  from {transform: scale(0)}
   to {transform: scale(1)}
 }
 
