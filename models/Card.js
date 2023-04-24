@@ -1,41 +1,43 @@
-const { Model, DataTypes } = require("sequelize");
-// const bcrypt = require("bcrypt");
-const db = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const db = require('../config/connection');
+const User = require('./User');
 
-class Card extends Model {
-    // async validatePass(provided_password) {
-    //     const is_valid = await bcrypt.compare(provided_password, this.password);
-    //     return is_valid;
-    // }
-}
+class Card extends Model {}
 
-Card.init({
+Card.init(
+  {
     task_title: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     task_desc: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     task_cat: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     teammate_id: {
-        type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     status: {
-        type: DataTypes.STRING,
-        defaultValue: "To do"
-    }
-}, {
+      type: DataTypes.STRING,
+      defaultValue: 'To do',
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+  },
+  {
     sequelize: db,
-    modelName: "card",
-    // hooks: {
-    //     async beforeCreate(user) {
-    //         const encrypted_pass = await bcrypt.hash(user.password, 10);
-    //         user.password = encrypted_pass;
-    //     }
-    // }
-});
+    modelName: 'card',
+  },
+);
+
+User.hasMany(Card, { foreignKey: 'user_id' });
 
 module.exports = Card;

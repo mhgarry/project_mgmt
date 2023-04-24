@@ -3,7 +3,10 @@ const express = require('express');
 const session = require('express-session');
 const { engine } = require('express-handlebars');
 const passport = require('passport');
-const passportConfig = require('./config/passport');
+const passportConfig = require('./config/passport')
+
+// Call passportConfig function and pass in passport object
+passportConfig(passport);
 
 const PORT = process.env.PORT || 3001;
 const routes = require('./controllers');
@@ -29,7 +32,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-passportConfig(passport);
+app.use(passport.initialize());
 app.use(passport.session({
 }));
 

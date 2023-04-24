@@ -1,36 +1,46 @@
-const LocalStrategy = require('passport-local').Strategy;
-const User = require('../models/User');
+const passportLocal = require("passport-local");
 
-function passportConfig (passport) {
-  passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-    // Find the user with the provided email
-    User.findOne({ where: { email: email } }).then(user => {
-      // If the user does not exist, return an error
-      if (!user) {
-        return done(null, false, { message: 'Incorrect email or password.' });
-      }
-      // Use the validatePass method to compare the provided password with the encrypted password in the database
-      user.validatePass(password).then(isMatch => {
-        if (isMatch) {
-          return done(null, user);
-        } else {
-          return done(null, false, { message: 'Incorrect email or password.' });
+function passportConfig(passport) {
+  console.log("Passport config called"); // add this line
+  passport.use(
+    new passportLocal.Strategy({ usernameField: "email" }, async (email, password, done) => {
+      try {
+        const user = await User.findOne({ where: { email } });
+
+        if (!user) {
+          return done(null, false, { message: "Incorrect email or password." });
         }
-      });
-    }).catch(err => console.log(err));
-  }));
 
-  // Serialize user ID to the session
+        const isPasswordValid = await user.validatePassword(password);
+
+        if (!isPasswordValid) {
+          return done(null, false, { message: "Incorrect email or password." });
+        }
+
+        return done(null, user);
+      } catch (error) {
+        return done(error);
+      }
+    })
+  );
+
   passport.serializeUser((user, done) => {
     done(null, user.id);
   });
 
-  // Deserialize user ID from the session and retrieve the user from the database
-  passport.deserializeUser((id, done) => {
-    User.findByPk(id).then(user => {
-      done(null, user);
-    }).catch(err => console.log(err));
-  });
-};
-module.exports = passportConfig;
+  passport.deserializeUser(async (id, done) => {
+    try {
+      const user = await User.findByPk(id);
 
+      if (!user) {
+        return done(null, false);
+      }
+
+      return done(null, user);
+    } catch (error) {
+      return done(error);
+    }
+  });
+}
+
+module.exports = passportConfig;
