@@ -25,7 +25,8 @@ Enter task data into the card.
 Dashboard populates with new data.
 ![dashbaord with new to task populated](./public/images/s5.png)
 
-<!-- Project page displays all tasks for the project. -->
+Project page displays all tasks for the project.
+![project displays all tasks for the project](./public/images/s6.png)
 
 ## Credits
 
