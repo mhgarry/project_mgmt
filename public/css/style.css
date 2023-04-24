@@ -92,7 +92,7 @@ body {
   justify-content: end;
 }
 
-#project-name {
+.h1 {
   background-color: var(--darkest);
   color: var(--lightest);
   width: 100%;
@@ -102,7 +102,63 @@ body {
 }
 
 /* __________CSS FOR PROJECT PAGE____________ */
-.columns-wrapper {
+
+
+/* .columns-wrapper {
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto, 1fr;
+  grid-template-areas: 
+    "to-do in-progress completed";
+}
+
+#to-do {
+  grid-area: to-do;
+  background-color: var(--darker);
+  grid-column: 1 / 3;
+  text-align: center;
+  padding: 10px;
+  color: var(--lightest); 
+  border-radius: 10px;
+  margin: 20px;
+}
+
+#in-progress {
+  grid-area: in-progress;
+  background-color: var(--darker);
+  /* height: 100vh; */
+  /* border-radius: 10px;
+  margin-left: 20px;
+  grid-column: 2 / 3;
+  margin: 20px;
+} */
+
+/* #completed {
+  grid-area: completed;
+  background-color: var(--darker);
+  /* height: 100vh; */
+  /* border-radius: 10px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 3 / 3;
+  margin: 20px;
+} */
+
+/* .columns-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-xs-4 {
+  width: 20%;
+  background-color: var(--darker);
+  
+}  */
+
+/* .columns-wrapper {
   display: grid;
   grid-template-columns: 1, 3fr;
   grid-template-rows: auto, 1fr;
@@ -113,12 +169,12 @@ body {
 
 .h1 {
   /* grid-column: 1 / -1; */
-}
+/* }
 .col-xs-4 {
 
-}
+} */
 
-/* .columns-wrapper{
+.columns-wrapper{
   display: flex;
   flex-wrap: wrap;
 }
@@ -129,11 +185,11 @@ body {
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
-} */
+}
 
-/* .col-xs-4 {
+.col-xs-4 {
   flex: 0 0 calc(33.33333% - 10px);
-} */
+} 
 
 .box {
   background-color: var(--darker);
@@ -799,9 +855,8 @@ button:hover {
 
 .task-card-project {
   margin: auto;
-
+  margin-top: 20px;
 }
-
 
 /* here is the card css we need if we have to redo the edit card css */
 /* .card h5 {
