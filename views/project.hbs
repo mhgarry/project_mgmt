@@ -69,7 +69,7 @@
 {{!-- https://www.w3schools.com/howto/howto_css_badge.asp --}}
 <section class="columns-wrapper">
   <div class="h1">
-<h1 id="project-name">Project Name</h1>
+<h1 id="project-name">{{project.proj_title}}</h1>
   </div>
   <div class="row">
     
@@ -77,9 +77,30 @@
       <div class="box" id="to-do">
            
         <h3 class="project">To Do</h3>
+{{#each todo_cards}}  
         <div class="">
+          <a href="/edit_card/{{this.id}}">
+          <div class="task-card task-card-project">
+            <h5>{{this.task_title}}</h5>
+            </a>
+            <p class="task-test">{{this.task_desc}}</p>
+            <div class="user-cat">
+              <span class="badge">{{this.task_cat}}</span>
+              <span class="badge">{{this.teammate_email}}</span>
+            </div>
+          </div>
+        </div>
+{{/each}}
 
-        {{#each todo_cards}}
+      </div>
+    </div>
+
+    <div class="col-xs-4">
+      <div class="box" id="in-progress">
+        <h3 class="project">In Progress</h3>
+     
+{{#each inprogress_cards}}
+      <div class="">
         <a href="/edit_card/{{this.id}}">
         <div class="task-card task-card-project">
           <h5>{{this.task_title}}</h5>
@@ -90,42 +111,21 @@
             <span class="badge">{{this.teammate_email}}</span>
           </div>
         </div>
-        {{/each}}
-
       </div>
+{{/each}}
     </div>
+</div>
 
-    <div class="col-xs-4">
-      <div class="box" id="in-progress">
-        <h3 class="project">In Progress</h3>
-      <div class="">
 
-{{#each inprogress_cards}}
-
-        <a href="/edit_card/{{this.id}}">
-        <div class="task-card task-card-project">
-          <h5>{{this.task_title}} {{this.status}}</h5>
-          </a>
-          <p class="task-test">{{this.task_desc}}</p>
-          <div class="user-cat">
-            <span class="badge">{{this.task_cat}}</span>
-            <span class="badge">{{this.teammate_email}}</span>
-          </div>
-        </div>
-        {{/each}}
-
-      </div>
-    </div>
     <div class="col-xs-4">
       <div class="box" id="completed">
         <h3 class="project">Completed</h3>
+{{#each completed_cards}}
+
       <div class="">
-
-        {{#each completed_cards}}
-
         <a href="/edit_card/{{this.id}}">
         <div class="task-card task-card-project">
-          <h5>{{this.task_title}} {{this.status}}</h5>
+          <h5>{{this.task_title}}</h5>
           </a>
           <p class="task-test">{{this.task_desc}}</p>
           <div class="user-cat">
@@ -133,10 +133,8 @@
             <span class="badge">{{this.teammate_email}}</span>
           </div>
         </div>
-        {{/each}}
-
-
       </div>
+{{/each}}
     </div>
   </div>
 
