@@ -41,6 +41,21 @@ const seed = async () => {
         teammate_id: 3, // replace with the actual user ID
         status: "Completed"
       },
+
+      {
+        task_title: "Authentication",
+        task_desc: "read passport docs",
+        task_cat: "Backend",
+        teammate_id: 4, // replace with the actual user ID
+        status: "Completed"
+      },
+      {
+        task_title: "bcrypt",
+        task_desc: "determine levels of saltiness",
+        task_cat: "Backend",
+        teammate_id: 4, // replace with the actual user ID
+        status: "In progress"
+      },
     ]);
     console.log("----------CARDS SEEDED!----------");
   } catch (err) {
